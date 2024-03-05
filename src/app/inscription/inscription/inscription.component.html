@@ -1,68 +1,102 @@
 <mat-card class="card">
   <mat-card-content class="card-content">
-  <mat-card-header class="h1">
-    <h1>Inscription</h1>
-  </mat-card-header>
+    <mat-card-header class="h1">
+      <h1>Inscription</h1>
+    </mat-card-header>
     <mat-form-field class="example-full-width">
       <mat-label>Nom</mat-label>
-      <input matInput placeholder="votre nom" [(ngModel)]="nom" required>
+      <input matInput placeholder="votre nom" [(ngModel)]="nom" required />
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label>Prenom</mat-label>
-      <input matInput placeholder="votre prenom" [(ngModel)]="prenom" required>
+      <input
+        matInput
+        placeholder="votre prenom"
+        [(ngModel)]="prenom"
+        required
+      />
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label>Adresse-Email</mat-label>
-      <input matInput placeholder="pat@example.com" [(ngModel)]="email" required>
+      <input
+        matInput
+        placeholder="pat@example.com"
+        [(ngModel)]="email"
+        required
+      />
     </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Vous-êtes ?</mat-label>
-        <mat-select  [(ngModel)]="role">
-          @for (role of roles; track role) {
-            <mat-option [value]="role.value">{{role.viewValue}}</mat-option>
-          }
-        </mat-select>
+    <mat-form-field class="example-full-width">
+      <mat-label>Vous-êtes ?</mat-label>
+      <mat-select [(ngModel)]="role">
+        @for (role of roles; track role) {
+        <mat-option [value]="role.value">{{ role.viewValue }}</mat-option>
+        }
+      </mat-select>
     </mat-form-field>
     @if(role=="prof"){
-      <mat-form-field class="example-full-width">
-        <mat-label>Matière</mat-label>
-        <input matInput placeholder="votre matière" [(ngModel)]="libelle" required>
-      </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Matière</mat-label>
+      <input
+        matInput
+        placeholder="votre matière"
+        [(ngModel)]="libelle"
+        required
+      />
+    </mat-form-field>
     }
     <mat-form-field class="example-full-width">
       <mat-label>Mot de passe</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="motdepasse" required>
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      <input
+        matInput
+        [type]="hide ? 'password' : 'text'"
+        [(ngModel)]="motdepasse"
+        required
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
       </button>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label>Confirmation mot de passe</mat-label>
-      <input matInput [type]="hide2 ? 'password' : 'text'" [(ngModel)]="confirmationmotdepasse" required>
-      <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
-        <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+      <input
+        matInput
+        [type]="hide2 ? 'password' : 'text'"
+        [(ngModel)]="confirmationmotdepasse"
+        required
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide2 = !hide2"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide2"
+      >
+        <mat-icon>{{ hide2 ? "visibility_off" : "visibility" }}</mat-icon>
       </button>
     </mat-form-field>
-    <mat-card-footer class="card-footer">
-      @if(spinner){
-      <div class="div-spinner">
-        <mat-spinner  [diameter]="50"></mat-spinner>
+    @if(spinner){
+    <div class="div-spinner">
+      <mat-spinner [diameter]="50"></mat-spinner>
     </div>
-        }
-        @if(ErreurMessage!=""){
-          <div  color="warn">
-              <p>{{ErreurMessage}}</p>
-          </div>
-        }
-        @if(SuccessMessage!=""){
-          <div class="alert-success">
-              <p>{{SuccessMessage}}</p>
-           </div>
-        }
+    } @if(ErreurMessage!=""){
+    <div class="alert-danger">
+      <p>{{ ErreurMessage }}</p>
+    </div>
+    } @if(SuccessMessage!=""){
+    <div class="alert-success">
+      <p>{{ SuccessMessage }}</p>
+    </div>
+    }
     <div class="div-button">
-          <button mat-raised-button color="primary" (click)="inscriptionPost()">se connecter</button>
+      <button mat-raised-button color="primary" (click)="inscriptionPost()">
+        se connecter
+      </button>
     </div>
-    </mat-card-footer>
   </mat-card-content>
 </mat-card>
-

@@ -9,7 +9,7 @@
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label>Mot de passe</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="motdepasse">
+      <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="motdepasse" required>
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
@@ -21,7 +21,7 @@
     </div>
         }
         @if(ErreurMessage!=""){
-          <div  color="warn">
+          <div  class="alert-danger">
               <p>{{ErreurMessage}}</p>
           </div>
         }

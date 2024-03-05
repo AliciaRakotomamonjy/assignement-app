@@ -45,11 +45,9 @@ export class InscriptionComponent {
     this.SuccessMessage="";
     if (this.motdepasse =="" || this.email== "" || this.nom=="" || this.prenom=="" || this.confirmationmotdepasse=="" || this.role=="" ) {
       this.ErreurMessage = "Veuillez remplir les champs svp";
-      console.log("ato ve")
       this.spinner=false;
     }
-    if(this.role=="prof" && this.libelle==""){
-      console.log("sa ato")
+    else if(this.role=="prof" && this.libelle==""){
       this.ErreurMessage = "Veuillez remplir le champs matière";
       this.spinner=false;
     }
