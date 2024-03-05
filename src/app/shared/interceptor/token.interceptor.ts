@@ -6,6 +6,9 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
   if (sessionData != null || sessionData != undefined) {
     const { token, expirationDate } = JSON.parse(sessionData);
     console.log("token  alo " + token);
+    return next(req.clone({
+      headers: req.headers.set('Authorization', `Bearer ${token}`),
+    }));
   }
   return next(req);
 };
