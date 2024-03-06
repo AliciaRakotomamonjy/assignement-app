@@ -7,61 +7,40 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { UtilisateurService } from '../../shared/Services/utilisateur.service';
+import { UtilisateurService } from '../shared/Services/utilisateur.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import {MatSelectModule} from '@angular/material/select';
-
 @Component({
-  selector: 'app-inscription',
+  selector: 'app-login',
   standalone: true,
   imports: [MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, MatIconModule, MatButtonModule, MatCardModule
-    , MatProgressSpinnerModule, MatGridListModule,MatSelectModule],
-  templateUrl: './inscription.component.html',
-  styleUrl: './inscription.component.css'
+    , MatProgressSpinnerModule, MatGridListModule],
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css'
 })
-export class InscriptionComponent {
-  nom="";
-  prenom="";
-  email = "";
-  role="";
-  libelle="";
-  motdepasse = "";
-  confirmationmotdepasse = "";
+export class LoginComponent {
+  email="";
+  motdepasse ="";
   hide = true;
-  hide2 = true;
   spinner = false;
   ErreurMessage = "";
-  roles: any[] = [
-    {value: 'prof', viewValue: 'Professeur'},
-    {value: 'eleve', viewValue: 'Elève'},
-  ];
   constructor(private utilisateurService: UtilisateurService) {
 
   }
-  inscriptionPost() {
+
+  loginPost() {
     this.spinner = true
     this.ErreurMessage="";
-    if (this.motdepasse =="" || this.email== "" || this.nom=="" || this.prenom=="" || this.confirmationmotdepasse=="" || this.role=="" ) {
+    if (this.motdepasse ==""|| this.email== "") {
       this.ErreurMessage = "Veuillez remplir les champs svp";
       this.spinner=false;
     }
-    else if(this.role=="prof" && this.libelle==""){
-      this.ErreurMessage = "Veuillez remplir le champs matière";
-      this.spinner=false;
-    }
-    else{
+    else {
       const form ={
-        nom:this.nom,
-        prenom:this.prenom,
-        motdepasse:this.motdepasse,
-        validationmdp:this.confirmationmotdepasse,
-        role:this.role,
         email:this.email,
-        libelle:this.libelle
+        motdepasse:this.motdepasse
       }
-      this.utilisateurService.Inscription(form).subscribe((reponse: any) => {
+      this.utilisateurService.Login(form).subscribe((reponse: any) => {
         this.utilisateurService.setToken(reponse.token)
-        console.log(reponse.message);
       }, (error: HttpErrorResponse) => {
         if (error.error instanceof ErrorEvent) {
           this.ErreurMessage = 'Une erreur s\'est produite : ' + error.error.message;
@@ -72,6 +51,5 @@ export class InscriptionComponent {
         }
       })
     }
-
   }
 }

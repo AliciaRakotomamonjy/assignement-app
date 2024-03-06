@@ -18,11 +18,13 @@ import { MatDividerModule } from '@angular/material/divider';
 })
 export class TemplateEnseignantComponent {
   menus = [
-    { link: '/dashboard', icon: 'dashboard', text: 'Dashboard', active: true },
-    { link: '/profile', icon: 'person', text: 'User', active: false }
+    { link: 'login', icon: 'dashboard', text: 'login', active: true },
+    { link: '/profile', icon: 'person', text: 'User', active: false },
+    { link: 'ajouterassignment', icon: 'person', text: 'Ajouter assignment', active: false }
+
   ];
 
-  selectedTitle: string = this.menus[0]?.text || ''; 
+  selectedTitle: string = this.menus[0]?.text || '';
 
   onItemClick(clickedItem: any) {
     this.selectedTitle = clickedItem.text;

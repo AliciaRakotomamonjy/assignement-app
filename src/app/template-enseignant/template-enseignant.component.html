@@ -4,7 +4,7 @@
         <div class="sidenav-logo" >
           <img src="../assets/images/logo/logo.png" width="40"  />
         </div>
-        
+
         <div>
           <mat-nav-list role="list" class="menu">
                 @for(menu of menus; track menu.link){
@@ -13,9 +13,9 @@
                     <mat-icon>{{menu.icon}}</mat-icon>
                     <span>{{menu.text}}</span>
                   </div>
-                  
+
                 </a>
-              }            
+              }
           </mat-nav-list>
         </div>
         <div>
@@ -27,7 +27,7 @@
           </a>
         </div>
       </div>
-      
+
     </mat-drawer>
     <mat-drawer-content class="main-container" >
       <mat-toolbar class="toolbar-container">
@@ -52,4 +52,3 @@
       </div>
     </mat-drawer-content>
   </mat-drawer-container>
-  
