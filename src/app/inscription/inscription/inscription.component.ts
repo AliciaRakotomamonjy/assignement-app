@@ -31,7 +31,6 @@ export class InscriptionComponent {
   hide2 = true;
   spinner = false;
   ErreurMessage = "";
-  SuccessMessage = "";
   roles: any[] = [
     {value: 'prof', viewValue: 'Professeur'},
     {value: 'eleve', viewValue: 'Elève'},
@@ -42,7 +41,6 @@ export class InscriptionComponent {
   inscriptionPost() {
     this.spinner = true
     this.ErreurMessage="";
-    this.SuccessMessage="";
     if (this.motdepasse =="" || this.email== "" || this.nom=="" || this.prenom=="" || this.confirmationmotdepasse=="" || this.role=="" ) {
       this.ErreurMessage = "Veuillez remplir les champs svp";
       this.spinner=false;

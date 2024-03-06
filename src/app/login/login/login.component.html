@@ -25,13 +25,8 @@
               <p>{{ErreurMessage}}</p>
           </div>
         }
-        @if(SuccessMessage!=""){
-          <div class="alert-success">
-              <p>{{SuccessMessage}}</p>
-           </div>
-        }
     <div class="div-button">
-          <button mat-raised-button color="primary" (click)="loginPost()">se connecter</button>
+          <button mat-raised-button color="primary" (click)="loginPost()" [disabled]="spinner">se connecter</button>
     </div>
     </mat-card-footer>
   </mat-card-content>

@@ -23,7 +23,6 @@ export class LoginComponent {
   hide = true;
   spinner = false;
   ErreurMessage = "";
-  SuccessMessage = "";
   constructor(private utilisateurService: UtilisateurService) {
 
   }
@@ -31,7 +30,6 @@ export class LoginComponent {
   loginPost() {
     this.spinner = true
     this.ErreurMessage="";
-    this.SuccessMessage="";
     if (this.motdepasse ==""|| this.email== "") {
       this.ErreurMessage = "Veuillez remplir les champs svp";
       this.spinner=false;
