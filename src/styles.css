@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+:root{
+    --primary: #053F5C;
+    --white: #E9F4FF;
+    --black: #1c1c1c;
+    --secondary: #F7AD19;
+    --tertiary: #F27F0C;
+}
+
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('./assets/fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('./assets/fonts/Roboto-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('./assets/fonts/Roboto-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url('./assets/fonts/Roboto-Medium.ttf');
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto-Regular'; }
