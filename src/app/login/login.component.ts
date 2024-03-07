@@ -10,11 +10,12 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { UtilisateurService } from '../shared/Services/utilisateur.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, MatIconModule, MatButtonModule, MatCardModule
-    , MatProgressSpinnerModule, MatGridListModule],
+    , MatProgressSpinnerModule, MatGridListModule,RouterModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -59,8 +60,5 @@ export class LoginComponent {
         }
       })
     }
-  }
-  redirecInscription() {
-    this.router.navigateByUrl("inscription");
   }
 }

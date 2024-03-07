@@ -1,7 +1,12 @@
 <mat-card class="card">
   <mat-card-content class="card-content">
-  <mat-card-header class="h1">
-    <h1>Login</h1>
+  <mat-card-header class="header">
+    <div class="logo">
+      <img src="../assets/images/logo/login.gif" width="150" height="120" />
+    </div>
+    <div class="titre">
+      <h1>Login</h1>
+    </div>
   </mat-card-header>
     <mat-form-field class="example-full-width">
       <mat-label>Adresse-Email</mat-label>
@@ -28,10 +33,12 @@
     <div class="div-button" style="margin-bottom: 2%;">
           <button mat-raised-button color="primary" (click)="loginPost()" [disabled]="spinner">Se connecter</button>
     </div>
-    <div class="div-button">
-          <button mat-raised-button color="primary" (click)="redirecInscription()" [disabled]="spinner">Inscription</button>
-    </div>
     </mat-card-footer>
   </mat-card-content>
-</mat-card>
 
+<mat-card-content class="card-content">
+    <div class="div-button">
+        <p>Nouveau sur site? <a color="primary" [routerLink]="['/inscription']" routerLinkActive="router-link-active"  >Inscription</a></p>
+    </div>
+</mat-card-content>
+</mat-card>

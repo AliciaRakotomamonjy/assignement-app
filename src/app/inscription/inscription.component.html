@@ -1,7 +1,12 @@
 <mat-card class="card">
   <mat-card-content class="card-content">
-    <mat-card-header class="h1">
-      <h1>Inscription</h1>
+    <mat-card-header class="header">
+      <div>
+        <img src="../assets/images/logo/create.png" width="150" height="120" />
+      </div>
+      <div>
+        <h1>Inscription</h1>
+      </div>
     </mat-card-header>
     <mat-form-field class="example-full-width">
       <mat-label>Nom</mat-label>
@@ -95,4 +100,9 @@
       </button>
     </div>
   </mat-card-content>
+  <mat-card-content class="card-content">
+    <div class="div-button">
+        <p>Vous avez un compte? <a color="primary" [routerLink]="['/login']" routerLinkActive="router-link-active"  >Login</a></p>
+    </div>
+</mat-card-content>
 </mat-card>

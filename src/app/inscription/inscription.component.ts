@@ -10,13 +10,13 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { UtilisateurService } from '../shared/Services/utilisateur.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-inscription',
   standalone: true,
   imports: [MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, MatIconModule, MatButtonModule, MatCardModule
-    , MatProgressSpinnerModule, MatGridListModule,MatSelectModule],
+    , MatProgressSpinnerModule, MatGridListModule,MatSelectModule,RouterModule],
   templateUrl: './inscription.component.html',
   styleUrl: './inscription.component.css'
 })
