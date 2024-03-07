@@ -10,6 +10,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { UtilisateurService } from '../shared/Services/utilisateur.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inscription',
@@ -35,7 +36,7 @@ export class InscriptionComponent {
     {value: 'prof', viewValue: 'Professeur'},
     {value: 'eleve', viewValue: 'Elève'},
   ];
-  constructor(private utilisateurService: UtilisateurService) {
+  constructor(private utilisateurService: UtilisateurService,private router:Router) {
 
   }
   inscriptionPost() {
@@ -61,7 +62,13 @@ export class InscriptionComponent {
       }
       this.utilisateurService.Inscription(form).subscribe((reponse: any) => {
         this.utilisateurService.setToken(reponse.token)
-        console.log(reponse.message);
+        let UtilisateurRole=this.utilisateurService.getRoleUtilisateur();
+        if (UtilisateurRole=="prof") {
+          this.router.navigateByUrl("accueil_Enseignant");
+        }
+        else{
+          this.router.navigateByUrl("accueil_Etudiant");
+        }
       }, (error: HttpErrorResponse) => {
         if (error.error instanceof ErrorEvent) {
           this.ErreurMessage = 'Une erreur s\'est produite : ' + error.error.message;

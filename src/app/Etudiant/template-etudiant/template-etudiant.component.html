@@ -3,8 +3,9 @@
       <div class="sidebar-container">
         <div class="sidenav-logo" >
           <img src="../assets/images/logo/logo.png" width="40"  />
+          <!-- <span>AssignementApp</span> -->
+          <!-- <mat-divider class="sidenav-divider" ></mat-divider> -->
         </div>
-
         <div>
           <mat-nav-list role="list" class="menu">
                 @for(menu of menus; track menu.link){
@@ -16,6 +17,10 @@
 
                 </a>
               }
+
+
+            <!-- <mat-divider class="sidenav-divider" ></mat-divider> -->
+
           </mat-nav-list>
         </div>
         <div>
@@ -26,6 +31,8 @@
             </div>
           </a>
         </div>
+
+
       </div>
 
     </mat-drawer>
@@ -37,13 +44,13 @@
         <span class="toolbar-spacer"></span>
         <button  mat-button [matMenuTriggerFor]="toolbarMenu">
           <div class="toolbar-profile">
-            <img src="../assets/images/profile/male-teacher.png" width="40" height="40" />
-            <span>Mr. Tsinjo</span>
+            <img src="../assets/images/profile/female-student.png" width="40" height="40" />
+            <span>Alicia</span>
           </div>
         </button>
         <mat-menu #toolbarMenu="matMenu">
           <button mat-menu-item>Profile<mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon></button>
-          <button mat-menu-item>Déconnexion<mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="power_settings_new"></mat-icon></button>
+          <button mat-menu-item (click)="deconnexion()" >Déconnexion<mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="power_settings_new"></mat-icon></button>
         </mat-menu>
       </mat-toolbar>
       <div class="content-container" >
