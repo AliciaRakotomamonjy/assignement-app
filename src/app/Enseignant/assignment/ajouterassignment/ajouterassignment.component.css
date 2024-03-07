@@ -5,19 +5,38 @@
 .mat-mdc-form-field {
   margin-top: 16px;
 }
+
 .alert-danger {
   background-color: #ef685e;
   padding: 1%;
   margin-bottom: 2%;
   border-radius: 3%;
   justify-content: center;
+  margin-top: 5%;
+  margin-left: 25%;
   display: flex;
+  width: 50%;
 }
+
 .alert-success {
   background-color: #74b77f;
   padding: 1%;
   margin-bottom: 2%;
   border-radius: 3%;
   justify-content: center;
+  margin-top: 5%;
+  margin-left: 25%;
   display: flex;
+  width: 50%;
+}
+
+.container {
+margin: 5%;
+}
+
+.valider{
+  margin-top: 5%;
+}
+.div-spinner{
+  margin: 5%;
 }

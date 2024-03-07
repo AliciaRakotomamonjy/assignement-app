@@ -1,4 +1,5 @@
-<mat-stepper [linear]="isLinear" #stepper>
+<div class="container">
+<mat-stepper [linear]="isLinear" #stepper class="">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Déscription du devoir</ng-template>
@@ -32,6 +33,7 @@
     <mat-spinner  [diameter]="50"></mat-spinner>
 </div>
 }
+<button mat-raised-button (click)="Valider()"color="primary" class="valider" [disabled]="spinner">Valider</button>
 @if(ErreurMessage!=""){
   <div  class="alert-danger">
       <p>{{ErreurMessage}}</p>
@@ -42,4 +44,4 @@
       <p>{{SuccessMessage}}</p>
    </div>
 }
-<button mat-raised-button (click)="Valider()"color="primary" [disabled]="spinner">Valider</button>
+</div>
