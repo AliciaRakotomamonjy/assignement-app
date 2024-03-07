@@ -10,7 +10,7 @@ export const loginGuard: CanActivateFn = (route, state) => {
   const sessionData = localStorage.getItem(environment.UTILISATEUR_SESSION_KEY);
   const role = localStorage.getItem(environment.UTILISATEUR_ROLE_KEY);
   if (sessionData != null) {
-    const role = utilisateurService.getRoleUtilisateur();
+    const role = utilisateurService.getInfoFromToken("role");
     if (role == 'prof') {
       router.navigateByUrl("accueil_Enseignant");
     }

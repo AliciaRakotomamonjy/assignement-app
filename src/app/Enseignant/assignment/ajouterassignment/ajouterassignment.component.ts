@@ -68,7 +68,6 @@ export class AjouterassignmentComponent {
         this.isLinear = false
         console.log(error.error.message)
       } else {
-        console.log("2 +++++++++++++" + error.error.message)
         this.ErreurMessage = error.error.message;
         this.spinner = false;
         this.isLinear = false

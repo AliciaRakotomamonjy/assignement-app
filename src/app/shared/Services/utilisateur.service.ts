@@ -28,19 +28,20 @@ export class UtilisateurService {
     const expirationDate = moment().locale('ru').add(2, 'days');
     localStorage.setItem(environment.UTILISATEUR_SESSION_KEY, JSON.stringify({ token, expirationDate }));
   }
-  getRoleUtilisateur() {
+  getInfoFromToken(info: string): any {
     const sessionData = localStorage.getItem(environment.UTILISATEUR_SESSION_KEY);
-    if (sessionData == null) return;
-    const token = JSON.parse(sessionData).token
-    if (token) {
-      try {
-        const decodedToken: any = jwtDecode(token);
-        return decodedToken.role;
-      } catch (error) {
-        console.error('Erreur lors du décodage du token JWT :', error);
-      }
+    if (!sessionData) return null;
+
+    const token = JSON.parse(sessionData).token;
+    if (!token) return null;
+
+    try {
+      const decodedToken: any = jwtDecode(token);
+      return decodedToken[info];
+    } catch (error) {
+      console.error('Erreur lors du décodage du token JWT :', error);
+      return null;
     }
-    return null;
   }
   logoutUtiliateur(): void {
     localStorage.removeItem(environment.UTILISATEUR_SESSION_KEY);

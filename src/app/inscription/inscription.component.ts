@@ -62,7 +62,7 @@ export class InscriptionComponent {
       }
       this.utilisateurService.Inscription(form).subscribe((reponse: any) => {
         this.utilisateurService.setToken(reponse.token)
-        let UtilisateurRole=this.utilisateurService.getRoleUtilisateur();
+        let UtilisateurRole=this.utilisateurService.getInfoFromToken('role');
         if (UtilisateurRole=="prof") {
           this.router.navigateByUrl("accueil_Enseignant");
         }
