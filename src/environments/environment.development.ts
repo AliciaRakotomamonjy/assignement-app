@@ -17,7 +17,7 @@ export const environment = {
 
   ASSIGNMENT_API: '/api/assignment',
   ASSIGNMENT: {
-    GETALL: '/getAllAssignment',
+    GETALL_WITH_PAGINATION: '/getAllAssignment',
     AJOUTER_ASSIGNMENT: '/ajouterassignment'
   }
 

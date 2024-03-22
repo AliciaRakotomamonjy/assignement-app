@@ -8,7 +8,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { AsignmentService } from '../../../shared/Services/asignment.service';
+import { AssignmentService } from '../../../shared/Services/assignment.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
@@ -41,7 +41,7 @@ export class AjouterassignmentComponent {
   });
   isLinear = false;
   spinner = false
-  constructor(private _formBuilder: FormBuilder, private _snackBar: MatSnackBar, private assignmentService: AsignmentService) { }
+  constructor(private _formBuilder: FormBuilder, private _snackBar: MatSnackBar, private assignmentService: AssignmentService) { }
   ErreurMessage = ""
   SuccessMessage = "";
 

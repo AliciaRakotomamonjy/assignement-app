@@ -6,7 +6,7 @@ import { environment } from '../../../environments/environment.development';
 @Injectable({
   providedIn: 'root'
 })
-export class AsignmentService {
+export class AssignmentService {
 
   constructor(private httpClient: HttpClient) {}
 
@@ -14,5 +14,10 @@ export class AsignmentService {
     let url = environment.API_URL+environment.ASSIGNMENT_API+environment.ASSIGNMENT.AJOUTER_ASSIGNMENT;
     console.log(url);
     return this.httpClient.post(url, data);
+  }
+  GetAllAssignmentWithPagination(page:number, limit:number): Observable<any> {
+    let url = environment.API_URL+environment.ASSIGNMENT_API+environment.ASSIGNMENT.GETALL_WITH_PAGINATION+ "?page=" + page + "&limit=" + limit;
+    console.log(url);
+    return this.httpClient.get(url);
   }
 }

@@ -20,7 +20,8 @@ import { UtilisateurService } from '../../shared/Services/utilisateur.service';
 export class TemplateEnseignantComponent implements OnInit {
   menus = [
     { link: '/profile', icon: 'person', text: 'User', active: false },
-    { link: 'ajouterassignment', icon: 'assignment-add', text: 'Ajouter assignment', active: false }
+    { link: 'ajouterassignment', icon: 'assignment-add', text: 'Ajouter assignment', active: false },
+    { link: 'listeassignment', icon: 'list assignment', text: 'La liste des assignment', active: false },
 
   ];
   nom = ''
