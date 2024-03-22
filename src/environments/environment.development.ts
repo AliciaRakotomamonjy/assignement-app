@@ -18,7 +18,15 @@ export const environment = {
   ASSIGNMENT_API: '/api/assignment',
   ASSIGNMENT: {
     GETALL_WITH_PAGINATION: '/getAllAssignment',
-    AJOUTER_ASSIGNMENT: '/ajouterassignment'
-  }
+    AJOUTER_ASSIGNMENT: '/ajouterassignment',
+    GET_ASSIGNMENT_BY_ID:'/getassignmentbyid',
+    EDIT_ASSIGNMENT:'/editeassignment',
+    DELETE_ASSIGNMENT:'/deleteassignment',
+  },
+
+  MATIERE_API:'/api/matiere',
+  MATIERE:{
+    GET_ALL_MATIERE:'/getAllMatiere'
+  },
 
 };

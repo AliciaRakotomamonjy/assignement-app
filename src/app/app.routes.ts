@@ -7,6 +7,7 @@ import { TemplateEnseignantComponent } from './Enseignant/template-enseignant/te
 import { authGuard } from './shared/guard/auth.guard';
 import { loginGuard } from './shared/guard/login.guard';
 import { ListeassignmentComponent } from './Enseignant/assignment/listeassignment/listeassignment.component';
+import { EditeassignmentComponent } from './Enseignant/assignment/editeassignment/editeassignment.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -23,6 +24,9 @@ export const routes: Routes = [
       },
       {
         path: 'listeassignment', component: ListeassignmentComponent
+      },
+      {
+        path: 'editeassignment/:id', component: EditeassignmentComponent
       },
     ],
   }
