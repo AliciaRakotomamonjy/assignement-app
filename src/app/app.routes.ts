@@ -8,6 +8,7 @@ import { authGuard } from './shared/guard/auth.guard';
 import { loginGuard } from './shared/guard/login.guard';
 import { ListeassignmentComponent } from './Enseignant/assignment/listeassignment/listeassignment.component';
 import { EditeassignmentComponent } from './Enseignant/assignment/editeassignment/editeassignment.component';
+import { LesdevoirsComponent } from './Etudiant/devoir/lesdevoirs/lesdevoirs.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -15,6 +16,11 @@ export const routes: Routes = [
   { path: 'inscription', component: InscriptionComponent, canActivate: [loginGuard] },
   {
     path: 'accueil_Etudiant', component: TemplateEtudiantComponent, canActivate: [authGuard],
+    children:[
+      {
+        path: 'les_devoirs', component: LesdevoirsComponent
+      }
+    ]
   },
   {
     path: 'accueil_Enseignant', component: TemplateEnseignantComponent, canActivate: [authGuard],

@@ -21,7 +21,9 @@ import { UtilisateurService } from '../../shared/Services/utilisateur.service';
 export class TemplateEtudiantComponent implements OnInit {
   menus = [
     { link: '/dashboard', icon: 'dashboard', text: 'Dashboard', active: true },
-    { link: '/profile', icon: 'person', text: 'User', active: false }
+    { link: '/profile', icon: 'person', text: 'User', active: false },
+    { link: 'les_devoirs', icon: 'list devoir', text: 'La liste des assignments', active: false },
+
   ];
   nom = ""
   prenom = ""
