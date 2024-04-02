@@ -10,6 +10,7 @@ import { ListeassignmentComponent } from './Enseignant/assignment/listeassignmen
 import { EditeassignmentComponent } from './Enseignant/assignment/editeassignment/editeassignment.component';
 import { LesdevoirsComponent } from './Etudiant/devoir/lesdevoirs/lesdevoirs.component';
 import { etudiantGuard } from './shared/guard/etudiant.guard';
+import { FairedevoirComponent } from './Etudiant/devoir/fairedevoir/fairedevoir.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -20,6 +21,9 @@ export const routes: Routes = [
     children:[
       {
         path: 'les_devoirs', component: LesdevoirsComponent
+      },
+      {
+        path: 'faire_assignment/:id', component: FairedevoirComponent
       }
     ]
   },

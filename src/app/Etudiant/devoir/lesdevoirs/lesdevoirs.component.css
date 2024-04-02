@@ -1,0 +1,14 @@
+.spinner
+{
+  height: 5%;
+}
+.div-spinner
+{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+.filtre{
+  margin-right: 2%;
+}

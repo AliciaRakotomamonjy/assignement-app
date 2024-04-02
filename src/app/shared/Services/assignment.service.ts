@@ -45,4 +45,9 @@ export class AssignmentService {
     let url = environment.API_URL + environment.ASSIGNMENT_API + environment.ASSIGNMENT.EDIT_ASSIGNMENT;
     return this.httpClient.put<Assignment>(url, assignment);
   }
+  FaireAssignment(formData:any):Observable<any>{
+    let url = environment.API_URL + environment.UTILISATEUR_API + environment.UTILISATEUR.FAIRE_LE_DEVOIR;
+    return this.httpClient.put<Assignment>(url, formData);
+  }
+
 }

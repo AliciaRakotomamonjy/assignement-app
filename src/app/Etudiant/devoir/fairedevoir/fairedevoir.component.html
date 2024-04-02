@@ -1,0 +1,73 @@
+<mat-card class="detail_assignment">
+  <mat-card-header><h3>Détails de l'assignement</h3></mat-card-header>
+  <mat-card-content>
+    <ul>
+      <li>La description : {{ assignment?.description }}</li>
+      <li>La date de publication : {{ assignment?.datePublication }}</li>
+      <li>La date de limite : {{ assignment?.dateLimite }}</li>
+    </ul>
+  </mat-card-content>
+</mat-card>
+<h3>Faire votre devoir</h3>
+<div class="container">
+  @if(ErreurMessage!=""){
+    <div  class="alert-danger">
+        <p>{{ErreurMessage}}</p>
+    </div>
+  }
+  @if(SuccessMessage!=""){
+    <div class="alert-success">
+        <p>{{SuccessMessage}}</p>
+     </div>
+  }
+  <mat-stepper [linear]="isLinear" #stepper class="">
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Déscription du devoir</ng-template>
+        <mat-form-field>
+          <mat-label>Déscription</mat-label>
+          <input
+            matInput
+            placeholder="La déscription"
+            formControlName="firstCtrl"
+            [(ngModel)]="description"
+            required
+          />
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+          <input
+            type="file"
+            formControlName="secondCtrl"
+            id="fichier"
+            (change)="selectFile($event)"
+            name="fichier"
+            required
+          />
+        <div>
+          <button mat-button matStepperPrevious>retour</button>
+          <button mat-button (click)="stepper.reset()">vider</button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-stepper>
+  @if(spinner){
+  <div class="div-spinner">
+    <mat-spinner [diameter]="50"></mat-spinner>
+  </div>
+  }
+  <button
+    mat-raised-button
+    (click)="Valider()"
+    color="primary"
+    class="valider"
+    [disabled]="spinner"
+  >
+    Valider
+  </button>
+</div>

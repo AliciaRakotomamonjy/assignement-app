@@ -13,7 +13,7 @@ export const professeurGuard: CanActivateFn = (route, state) => {
       if (role == 'prof') {
         return true;
       }
-      router.navigateByUrl("login");
+      router.navigateByUrl("accueil_Etudiant");
       return false;
     }else{
       router.navigateByUrl("login");

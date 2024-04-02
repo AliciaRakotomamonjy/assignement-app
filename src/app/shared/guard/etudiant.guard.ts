@@ -13,7 +13,7 @@ export const etudiantGuard: CanActivateFn = (route, state) => {
     if (role == 'eleve') {
       return true;
     }
-    router.navigateByUrl("login");
+    router.navigateByUrl("accueil_Enseignant");
     return false;
   } else {
     router.navigateByUrl("login");
