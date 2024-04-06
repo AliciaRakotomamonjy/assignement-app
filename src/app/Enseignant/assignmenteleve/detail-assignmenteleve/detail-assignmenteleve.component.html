@@ -1,0 +1,20 @@
+<div>
+    @if(isLoading){
+        <div>Loading...</div>
+        <mat-progress-spinner color="blue" ></mat-progress-spinner>
+    }@else{
+        <div>
+            <p>Eleve: {{assignmentEleveTransmis?.eleve?.nom + " "+assignmentEleveTransmis?.eleve?.prenom}}</p>
+            <p>Description: {{assignmentEleveTransmis?.description}}</p>
+            <p>Date de rendu: {{assignmentEleveTransmis?.dateRendu | date: 'EEE d MMMM y': 'fr' }}</p>
+            <p>Matière: {{assignmentEleveTransmis?.assignment?.matiere?.libelle}}</p>
+            <p>Devoir: {{assignmentEleveTransmis?.assignment?.description + " à rendre avant le " +(assignmentEleveTransmis?.assignment?.dateLimite | date: 'EEE d MMMM y': 'fr')}}</p>
+            <p>Rendu: {{ assignmentEleveTransmis?.rendu ? 'OUI' : 'NON' }}</p>
+            @if(assignmentEleveTransmis?.rendu){
+                <p>Note: {{assignmentEleveTransmis?.note}}</p>
+                <p>Remarque: {{assignmentEleveTransmis?.remarque}}</p>
+            }
+            <button mat-button color="primary" (click)="openDialog()" >{{ assignmentEleveTransmis?.note ? "Changer la " : "Attribuer une " }}note</button>
+        </div>
+    }
+</div>

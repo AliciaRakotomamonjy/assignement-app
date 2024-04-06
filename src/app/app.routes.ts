@@ -8,6 +8,9 @@ import { authGuard } from './shared/guard/auth.guard';
 import { loginGuard } from './shared/guard/login.guard';
 import { ListeassignmentComponent } from './Enseignant/assignment/listeassignment/listeassignment.component';
 import { EditeassignmentComponent } from './Enseignant/assignment/editeassignment/editeassignment.component';
+import { DetailAssignmentComponent } from './Enseignant/assignment/detail-assignment/detail-assignment.component';
+import { ProfileComponent } from './Enseignant/profile/profile.component';
+import { DetailAssignmenteleveComponent } from './Enseignant/assignmenteleve/detail-assignmenteleve/detail-assignmenteleve.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -28,6 +31,15 @@ export const routes: Routes = [
       {
         path: 'editeassignment/:id', component: EditeassignmentComponent
       },
+      {
+        path: 'detailassignment/:id', component: DetailAssignmentComponent
+      },
+      {
+        path: 'detailassignmenteleve/:id', component: DetailAssignmenteleveComponent
+      },
+      {
+        path: 'profile', component: ProfileComponent
+      }
     ],
   }
 ];

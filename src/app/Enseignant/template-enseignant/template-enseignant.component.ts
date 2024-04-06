@@ -19,10 +19,9 @@ import { UtilisateurService } from '../../shared/Services/utilisateur.service';
 })
 export class TemplateEnseignantComponent implements OnInit {
   menus = [
-    { link: '/profile', icon: 'person', text: 'User', active: false },
+    { link: 'profile', icon: 'person', text: 'Profil', active: true },
     { link: 'ajouterassignment', icon: 'assignment-add', text: 'Ajouter assignment', active: false },
     { link: 'listeassignment', icon: 'list assignment', text: 'La liste des assignment', active: false },
-
   ];
   nom = ''
   prenom = ''
@@ -43,4 +42,9 @@ export class TemplateEnseignantComponent implements OnInit {
     this.utilisateurService.logoutUtiliateur();
     this.router.navigateByUrl("login");
   }
+  goToProfile(){
+    console.log("profile");
+    this.router.navigateByUrl("/accueil_Enseignant/profile");
+  }
+
 }

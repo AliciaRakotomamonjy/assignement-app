@@ -1,3 +1,4 @@
+import { AssignmentElve } from "./assignmenteleve.model";
 import { Matiere } from "./matiere.model";
 
 export class Assignment {
@@ -6,4 +7,5 @@ export class Assignment {
   matiere!: Matiere;
   datePublication!: Date;
   dateLimite!:Date;
+  assignmenteleves: AssignmentElve[] = []; 
 }

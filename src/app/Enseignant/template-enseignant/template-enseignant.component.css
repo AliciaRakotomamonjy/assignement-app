@@ -95,9 +95,9 @@ mat-drawer{
 
 
 .main-container{
-    height: 100vh;  
+    /* height: 100vh;   */
     padding: 20px;
-    overflow-y: auto;
+    /* overflow-y: auto; */
     top: 0;
 }
 

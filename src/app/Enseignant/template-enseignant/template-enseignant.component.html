@@ -42,7 +42,7 @@
           </div>
         </button>
         <mat-menu #toolbarMenu="matMenu">
-          <button mat-menu-item>Profile<mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon></button>
+          <button mat-menu-item (click)="goToProfile()" >Profile<mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon></button>
           <button mat-menu-item (click)="deconnexion()">Déconnexion<mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="power_settings_new"></mat-icon></button>
         </mat-menu>
       </mat-toolbar>

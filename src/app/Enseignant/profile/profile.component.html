@@ -1,0 +1,31 @@
+<mat-card>
+    <mat-card-content>
+        <div class="container" >
+            <div class="photo" >
+                <div>
+                    <img class="photo-image" alt="Photo enseignant" src="../../../assets/images/profile/male-teacher.png" width="250" height="250" />
+                </div>
+                <!-- <div class="photo-bouton">
+                    <span>CHANGER L'IMAGE</span>
+                </div> -->
+
+            </div>
+            <div class="information" >
+                <div class="information-item" >
+                    <div class="information-item__label" >Nom:</div>
+                    <div class="information-item__value" >{{ profile?.nom }}</div>
+                </div>
+
+                <div class="information-item" >
+                    <div class="information-item__label" >Prénom:</div>
+                    <div class="information-item__value" >{{ profile?.prenom }}</div>
+                </div>
+                
+                <div class="information-item" >
+                    <div class="information-item__label" >Email:</div>
+                    <div class="information-item__value" >{{ profile?.email }}</div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

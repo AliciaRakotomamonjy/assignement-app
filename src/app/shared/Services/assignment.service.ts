@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { Assignment } from '../models/assignment.model';
+import { AssignmentElve } from '../models/assignmenteleve.model';
 
 @Injectable({
   providedIn: 'root'
@@ -44,5 +45,10 @@ export class AssignmentService {
   EditeAssignment(assignment:Assignment |undefined):Observable<any>{
     let url = environment.API_URL + environment.ASSIGNMENT_API + environment.ASSIGNMENT.EDIT_ASSIGNMENT;
     return this.httpClient.put<Assignment>(url, assignment);
+  }
+
+  GetAssignmentByIdWithDetail(id : string): Observable<Assignment> {
+    let url = environment.API_URL+environment.ASSIGNMENT_API+environment.ASSIGNMENT.DETAIL_ASSIGNEMENT+id;
+    return this.httpClient.get<Assignment>(url)
   }
 }
