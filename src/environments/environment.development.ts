@@ -13,6 +13,7 @@ export const environment = {
   UTILISATEUR_ROLE_KEY:'UTILISATEUR_ROLE',
   UTILISATEUR_API: '/api/utilisateur',
   UTILISATEUR: {
+    FAIRE_LE_DEVOIR: '/fairedevoir'
   },
 
   ASSIGNMENT_API: '/api/assignment',

@@ -20,7 +20,7 @@ import { RouterModule } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  email = "prof@prof.prof";
+  email = "ratsimhenintsoa@gmail.com";
   motdepasse = "ABC123abc.";
   hide = true;
   spinner = false;
