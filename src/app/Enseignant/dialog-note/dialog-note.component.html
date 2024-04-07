@@ -10,6 +10,6 @@
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions class="button-footer" >
-  <button mat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Valider</button>
+  <button mat-button color="primary" [mat-dialog-close]="{data: data, action: 'validate'}" cdkFocusInitial>Valider</button>
   <button mat-button (click)="onNoClick()">Annuler</button>
 </mat-dialog-actions>

@@ -12,6 +12,10 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatChipListboxChange, MatChipsModule } from '@angular/material/chips';
 import { forkJoin } from 'rxjs';
 import { CdkDragDrop, CdkDrag, CdkDropList, CdkDropListGroup, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { DialogNoteComponent } from '../../dialog-note/dialog-note.component';
+import { AssignmentEleveService } from '../../../shared/Services/assignment-eleve.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-detail-assignment',
@@ -31,7 +35,13 @@ export class DetailAssignmentComponent implements OnInit {
   assignmentEleveRendus: AssignmentElve[] = [];
   assignmentEleveNonRendus: AssignmentElve[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router, private assignmentService: AssignmentService) { }
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router, 
+    private assignmentService: AssignmentService,
+    private assignmentEleveService: AssignmentEleveService,
+    private dialog: MatDialog,
+    private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -74,13 +84,54 @@ export class DetailAssignmentComponent implements OnInit {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
+      
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex,
       );
+      this.openDialog(event.item.data)
     }
+  }
+
+  openDialog(assignmentEleve: AssignmentElve){
+    const dialogRef = this.dialog.open(DialogNoteComponent, {
+      data: {note: "", remarque: ""},
+      height: '400px',
+      width: '500px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result?.action === 'validate'){
+        this.isLoading = true;
+        if (assignmentEleve) {
+          assignmentEleve.note = result?.data?.note;
+          assignmentEleve.remarque = result?.data?.remarque;
+        }
+        this.assignmentEleveService.EditeAssignment(assignmentEleve).subscribe((response) => {
+          assignmentEleve = response?.result;
+          this.isLoading = false;
+          const config = new MatSnackBarConfig();
+          config.panelClass = ['custom-snackbar']; 
+          config.duration = 3000;
+          this.snackbar.open('Note attribué avec succès','Fermer',config)
+        }, (error: HttpErrorResponse) => {
+          if (error.error instanceof ErrorEvent) {
+            this.erreurMessage = 'Une erreur s\'est produite : ' + error.error.message;
+            this.isLoading = false;
+            console.log(error.error.message)
+          } else {
+            this.erreurMessage = error.error.message;
+            this.isLoading = false;
+          }
+          const config = new MatSnackBarConfig();
+          config.panelClass = ['custom-snackbar']; 
+          config.duration = 3000;
+          this.snackbar.open(this.erreurMessage,'Fermer',config)
+        })
+      }
+    });
   }
 
 }

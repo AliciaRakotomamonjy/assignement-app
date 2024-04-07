@@ -58,30 +58,34 @@ export class DetailAssignmenteleveComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result)
-      this.isLoading = true;
-      if (this.assignmentEleveTransmis) {
-        this.assignmentEleveTransmis.note = result?.note;
-        this.assignmentEleveTransmis.remarque = result?.remarque;
-      }
-      this.assignmentEleveService.EditeAssignment(this.assignmentEleveTransmis).subscribe((response) => {
-        this.assignmentEleveTransmis = response?.result;
-        this.isLoading = false;
-        const config = new MatSnackBarConfig();
-        config.panelClass = ['custom-snackbar']; 
-        config.duration = 3000;
-        this.snackbar.open('Note attribué avec succès','Fermer',config)
-      }, (error: HttpErrorResponse) => {
-        if (error.error instanceof ErrorEvent) {
-          this.erreurMessage = 'Une erreur s\'est produite : ' + error.error.message;
-          this.isLoading = false;
-          console.log(error.error.message)
-        } else {
-          this.erreurMessage = error.error.message;
-          this.isLoading = false;
+      if(result?.action === "validate"){
+        this.isLoading = true;
+        if (this.assignmentEleveTransmis) {
+          this.assignmentEleveTransmis.note = result?.data?.note;
+          this.assignmentEleveTransmis.remarque = result?.data?.remarque;
         }
-      })
+        this.assignmentEleveService.EditeAssignment(this.assignmentEleveTransmis).subscribe((response) => {
+          this.assignmentEleveTransmis = response?.result;
+          this.isLoading = false;
+          const config = new MatSnackBarConfig();
+          config.panelClass = ['custom-snackbar']; 
+          config.duration = 3000;
+          this.snackbar.open('Note attribué avec succès','Fermer',config)
+        }, (error: HttpErrorResponse) => {
+          if (error.error instanceof ErrorEvent) {
+            this.erreurMessage = 'Une erreur s\'est produite : ' + error.error.message;
+            this.isLoading = false;
+            console.log(error.error.message)
+          } else {
+            this.erreurMessage = error.error.message;
+            this.isLoading = false;
+          }
+          const config = new MatSnackBarConfig();
+          config.panelClass = ['custom-snackbar']; 
+          config.duration = 3000;
+          this.snackbar.open(this.erreurMessage,'Fermer',config)
+        })
+      }
     });
   }
 
