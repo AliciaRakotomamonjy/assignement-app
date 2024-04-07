@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -25,12 +25,17 @@ export class TemplateEnseignantComponent implements OnInit {
   ];
   nom = ''
   prenom = ''
-  selectedTitle: string = this.menus[0]?.text || '';
+  selectedTitle = "";
+  constructor(private utilisateurService: UtilisateurService, private router: Router,private route: ActivatedRoute) { }
 
-  constructor(private utilisateurService: UtilisateurService, private router: Router) { }
   ngOnInit(): void {
-    this.nom=this.utilisateurService.getInfoFromToken('nom');
-    this.prenom=this.utilisateurService.getInfoFromToken('prenom');
+    this.route.queryParams.subscribe(params => {
+      const titre = params['titre'];
+      this.selectedTitle = titre || this.menus[0]?.text || '';
+   });
+  
+    this.nom = this.utilisateurService.getInfoFromToken('nom');
+    this.prenom = this.utilisateurService.getInfoFromToken('prenom');
   }
   onItemClick(clickedItem: any) {
     this.selectedTitle = clickedItem.text;
