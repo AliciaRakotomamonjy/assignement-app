@@ -1,7 +1,8 @@
 <div>
     @if(isLoading){
-        <div>Loading...</div>
-        <mat-progress-spinner color="blue" ></mat-progress-spinner>
+        <div class="loading" >
+            <mat-spinner  diameter="40" color="blue" ></mat-spinner>
+        </div>
     }@else{
         <div>
             <p>Eleve: {{assignmentEleveTransmis?.eleve?.nom + " "+assignmentEleveTransmis?.eleve?.prenom}}</p>
@@ -15,6 +16,7 @@
                 <p>Remarque: {{assignmentEleveTransmis?.remarque}}</p>
             }
             <button mat-button color="primary" (click)="openDialog()" >{{ assignmentEleveTransmis?.note ? "Changer la " : "Attribuer une " }}note</button>
+            <button mat-button (click)="goToListe()">Revenir à la liste</button>
         </div>
     }
 </div>

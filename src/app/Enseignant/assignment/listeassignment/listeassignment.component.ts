@@ -34,7 +34,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class ListeassignmentComponent implements OnInit {
   assignments: Assignment[] = [];
-  displayedColumns: string[] = ['description', 'matiere', 'professeur', 'datePublication', 'dateLimite', 'editer', 'supprimer'];
+  displayedColumns: string[] = ['description', 'matiere', 'professeur', 'datePublication', 'dateLimite', 'details','editer', 'supprimer',];
   id = this.utilisateurService.getInfoFromToken('id')
   matier_id = this.utilisateurService.getInfoFromToken('matiere_id');
   matiere_libelle = this.utilisateurService.getInfoFromToken('matiere_libelle');

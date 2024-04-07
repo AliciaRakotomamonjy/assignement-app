@@ -51,6 +51,12 @@ export class AssignmentService {
     let url = environment.API_URL+environment.ASSIGNMENT_API+environment.ASSIGNMENT.DETAIL_ASSIGNEMENT+id;
     return this.httpClient.get<Assignment>(url)
   }
+
+  GetAssignementByIdWithDetailFiltered(id: string): Observable<any> {
+    let url = environment.API_URL+environment.ASSIGNMENT_API+environment.ASSIGNMENT.DETAIL_ASSIGNEMENT_FILTERED+id;
+    return this.httpClient.get<any>(url)
+  }
+
   FaireAssignment(formData:any):Observable<any>{
     let url = environment.API_URL + environment.UTILISATEUR_API + environment.UTILISATEUR.FAIRE_LE_DEVOIR;
     return this.httpClient.put<Assignment>(url, formData);

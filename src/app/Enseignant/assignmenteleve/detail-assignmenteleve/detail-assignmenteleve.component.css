@@ -1,0 +1,13 @@
+.loading{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    /* width: 40px; */
+    z-index: 9999;
+}
+
+.custom-snackbar {
+    --mdc-snackbar-container-color: var(--primary);
+    --mat-mdc-snack-bar-button-color: var(--primary);
+    --mat-mdc-snack-bar-supporting-text-font: 'Roboto-Medium'; 
+}

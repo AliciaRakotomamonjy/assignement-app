@@ -24,6 +24,7 @@ export const environment = {
     EDIT_ASSIGNMENT:'/editeassignment',
     DELETE_ASSIGNMENT:'/deleteassignment',
     DETAIL_ASSIGNEMENT: '/getassignmentbyidwithdetails/',
+    DETAIL_ASSIGNEMENT_FILTERED: '/getassignmentbyidwithdetailsfiltered/',
     DETAIL_ASSIGNEMENT_ELEVE: '/getassignmentelevebyid/',
     AJOUTER_NOTE_ASSIGNMENT_ELEVE: "/ajouternoteassignmenteleve"
   },

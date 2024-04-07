@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AssignmentElve } from '../../../shared/models/assignmenteleve.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogNoteComponent } from '../../dialog-note/dialog-note.component';
 import { AssignmentEleveService } from '../../../shared/Services/assignment-eleve.service';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-detail-assignmenteleve',
@@ -22,7 +23,12 @@ export class DetailAssignmenteleveComponent implements OnInit {
   isLoading = false;
   erreurMessage = ""
 
-  constructor(private route: ActivatedRoute, private assignmentEleveService: AssignmentEleveService,private dialog: MatDialog) {
+  constructor(
+    private route: ActivatedRoute, 
+    private assignmentEleveService: AssignmentEleveService,
+    private dialog: MatDialog,
+    private snackbar: MatSnackBar,
+    private router: Router) {
 
   }
   ngOnInit(): void {
@@ -62,6 +68,10 @@ export class DetailAssignmenteleveComponent implements OnInit {
       this.assignmentEleveService.EditeAssignment(this.assignmentEleveTransmis).subscribe((response) => {
         this.assignmentEleveTransmis = response?.result;
         this.isLoading = false;
+        const config = new MatSnackBarConfig();
+        config.panelClass = ['custom-snackbar']; 
+        config.duration = 3000;
+        this.snackbar.open('Note attribué avec succès','Fermer',config)
       }, (error: HttpErrorResponse) => {
         if (error.error instanceof ErrorEvent) {
           this.erreurMessage = 'Une erreur s\'est produite : ' + error.error.message;
@@ -73,6 +83,10 @@ export class DetailAssignmenteleveComponent implements OnInit {
         }
       })
     });
+  }
+
+  goToListe(){
+    this.router.navigateByUrl("/accueil_Enseignant/detailassignment/"+this.assignmentEleveTransmis?.assignment?._id)
   }
 
 
