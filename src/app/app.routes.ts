@@ -26,6 +26,11 @@ export const routes: Routes = [
     path: 'accueil_Etudiant', component: TemplateEtudiantComponent, canActivate: [etudiantGuard],
     children:[
       {
+        path: '',
+        redirectTo: 'les_devoirs', 
+        pathMatch: 'full'
+      },
+      {
         path: 'les_devoirs', component: LesdevoirsComponent
       },
       {
@@ -42,6 +47,11 @@ export const routes: Routes = [
   {
     path: 'accueil_Enseignant', component: TemplateEnseignantComponent, canActivate: [professeurGuard],
     children: [
+      {
+        path: '',
+        redirectTo: 'listeassignment', 
+        pathMatch: 'full'
+      },
       {
         path: 'ajouterassignment', component: AjouterassignmentComponent
       },
