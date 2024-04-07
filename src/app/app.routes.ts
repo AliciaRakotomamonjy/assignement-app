@@ -15,6 +15,7 @@ import { LesdevoirsComponent } from './Etudiant/devoir/lesdevoirs/lesdevoirs.com
 import { etudiantGuard } from './shared/guard/etudiant.guard';
 import { FairedevoirComponent } from './Etudiant/devoir/fairedevoir/fairedevoir.component';
 import { MesDevoirsComponent } from './Etudiant/devoir/mes-devoirs/mes-devoirs.component';
+import { DetailDevoirComponent } from './Etudiant/devoir/detail-devoir/detail-devoir.component';
 
 
 export const routes: Routes = [
@@ -32,6 +33,9 @@ export const routes: Routes = [
       },
       {
         path: 'mesdevoirs', component: MesDevoirsComponent
+      },
+      {
+        path: 'detailassignmenteleve/:id', component: DetailDevoirComponent
       },
     ]
   },

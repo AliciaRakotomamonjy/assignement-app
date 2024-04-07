@@ -59,6 +59,7 @@ export class MesDevoirsComponent implements OnInit {
     dateFin: undefined
   };
   SuccessMessage = "";
+  titreDestination = "Détails d'un devoir d'un élève";
 
   constructor(
     private assignmentEleveService: AssignmentEleveService, 

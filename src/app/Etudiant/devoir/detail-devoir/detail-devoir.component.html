@@ -1,0 +1,23 @@
+<div>
+    @if(isLoading){
+        <div class="loading" >
+            <mat-spinner  diameter="40" color="blue" ></mat-spinner>
+        </div>
+    }@else{
+        <div>
+            <p>Professeur: {{assignmentEleveTransmis?.assignment?.matiere?.professeur?.nom +" "+assignmentEleveTransmis?.assignment?.matiere?.professeur?.prenom}}</p>
+            <p>Description: {{assignmentEleveTransmis?.description}}</p>
+            <p>Date de rendu: {{assignmentEleveTransmis?.dateRendu | date: 'EEE d MMMM y': 'fr' }}</p>
+            <p>Matière: {{assignmentEleveTransmis?.assignment?.matiere?.libelle}}</p>
+            <p>Sujet: {{assignmentEleveTransmis?.assignment?.description}}</p>
+            <p>À rendre avant le: {{(assignmentEleveTransmis?.assignment?.dateLimite | date: 'EEE d MMMM y': 'fr')}}</p>
+            <p>Rendu: {{ assignmentEleveTransmis?.rendu ? 'OUI' : 'NON' }}</p>
+            @if(assignmentEleveTransmis?.rendu){
+                <p>Note: {{assignmentEleveTransmis?.note}}</p>
+                <p>Remarque: {{assignmentEleveTransmis?.remarque}}</p>
+            }
+            <button mat-button [matTooltip]="(assignmentEleveTransmis?.rendu && assignmentEleveTransmis?.note) ? 'Vous ne pouvez plus modifier ce devoir car il est déjà noté' : ''" color="primary" [disabled]="assignmentEleveTransmis?.rendu" (click)="openDialog()" >Modifier</button>
+            <button mat-button (click)="goToListe()">Revenir à la liste</button>
+        </div>
+    }
+</div>

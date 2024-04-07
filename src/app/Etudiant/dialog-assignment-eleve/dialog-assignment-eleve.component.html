@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Modification du devoir</h2>
+<mat-dialog-content class="dialog-content" >
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input matInput type="number" [(ngModel)]="data.description">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Fichier</mat-label>
+    <textarea rows="5" matInput [(ngModel)]="data.note" ></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions class="button-footer" >
+  <button mat-button color="primary" [mat-dialog-close]="{data: data, action: 'validate'}" cdkFocusInitial>Valider</button>
+  <button mat-button (click)="onNoClick()">Annuler</button>
+</mat-dialog-actions>
