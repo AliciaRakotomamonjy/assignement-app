@@ -11,7 +11,7 @@
         <p>Date de publication: {{assignmentTransmis?.datePublication | date: 'EEE d MMMM y': 'fr'}}</p>
     </div>
     <div class="custom-button-toggle">
-        <mat-chip-listbox (change)="onChipSelect($event)" aria-label="Mode affic">
+        <mat-chip-listbox (change)="onChipSelect($event)" aria-label="Mode affichage">
             <mat-chip-option value="table" [selected]="modeAffichage === 'table'">Table</mat-chip-option>
             <mat-chip-option value="dragndrop" [selected]="modeAffichage === 'dragndrop'">Drag'n'drop</mat-chip-option>
         </mat-chip-listbox>

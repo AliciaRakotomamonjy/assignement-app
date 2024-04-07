@@ -14,13 +14,11 @@ export class UtilisateurService {
 
   Login(data: any): Observable<any> {
     let url = environment.API_URL + environment.AUTH_API + environment.AUTH.LOGIN;
-    console.log(url);
     return this.httpClient.post(url, data);
   }
 
   Inscription(data: any): Observable<any> {
     let url = environment.API_URL + environment.AUTH_API + environment.AUTH.INSCRIPTION;
-    console.log(url);
     return this.httpClient.post(url, data);
   }
 

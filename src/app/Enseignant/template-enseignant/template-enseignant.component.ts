@@ -43,7 +43,6 @@ export class TemplateEnseignantComponent implements OnInit {
     this.router.navigateByUrl("login");
   }
   goToProfile(){
-    console.log("profile");
     this.router.navigateByUrl("/accueil_Enseignant/profile");
   }
 

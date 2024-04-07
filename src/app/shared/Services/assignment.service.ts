@@ -14,12 +14,10 @@ export class AssignmentService {
 
   AjouterAssignment(data: any): Observable<any> {
     let url = environment.API_URL + environment.ASSIGNMENT_API + environment.ASSIGNMENT.AJOUTER_ASSIGNMENT;
-    console.log(url);
     return this.httpClient.post(url, data);
   }
   GetAllAssignmentWithPagination(page: number, limit: number, filtre: any): Observable<any> {
     let url = environment.API_URL + environment.ASSIGNMENT_API + environment.ASSIGNMENT.GETALL_WITH_PAGINATION + "?page=" + page + "&limit=" + limit;
-    console.log("ity le filtre ary " + filtre.matiere)
     if (filtre) {
       if (filtre.matiere) {
         url += `&matiere=${filtre.matiere}`;
@@ -31,7 +29,6 @@ export class AssignmentService {
         url += `&dateFin=${filtre.dateFin}`;
       }
     }
-    console.log("ity le url : " + url);
     return this.httpClient.get(url);
   }
   GetAssignmentById(id: string): Observable<Assignment> {

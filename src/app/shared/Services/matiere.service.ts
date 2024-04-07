@@ -13,7 +13,6 @@ export class MatiereService {
 
   GetAllMatiere(): Observable<Matiere[]> {
     let url = environment.API_URL+environment.MATIERE_API+environment.MATIERE.GET_ALL_MATIERE;
-    console.log(url);
     return this.httpClient.get<Matiere[]>(url).pipe(
       map((data: any) => {
         return data.data;

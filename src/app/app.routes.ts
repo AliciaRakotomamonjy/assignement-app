@@ -14,6 +14,8 @@ import { DetailAssignmenteleveComponent } from './Enseignant/assignmenteleve/det
 import { LesdevoirsComponent } from './Etudiant/devoir/lesdevoirs/lesdevoirs.component';
 import { etudiantGuard } from './shared/guard/etudiant.guard';
 import { FairedevoirComponent } from './Etudiant/devoir/fairedevoir/fairedevoir.component';
+import { MesDevoirsComponent } from './Etudiant/devoir/mes-devoirs/mes-devoirs.component';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -27,7 +29,10 @@ export const routes: Routes = [
       },
       {
         path: 'faire_assignment/:id', component: FairedevoirComponent
-      }
+      },
+      {
+        path: 'mesdevoirs', component: MesDevoirsComponent
+      },
     ]
   },
   {

@@ -26,7 +26,8 @@ export const environment = {
     DETAIL_ASSIGNEMENT: '/getassignmentbyidwithdetails/',
     DETAIL_ASSIGNEMENT_FILTERED: '/getassignmentbyidwithdetailsfiltered/',
     DETAIL_ASSIGNEMENT_ELEVE: '/getassignmentelevebyid/',
-    AJOUTER_NOTE_ASSIGNMENT_ELEVE: "/ajouternoteassignmenteleve"
+    AJOUTER_NOTE_ASSIGNMENT_ELEVE: "/ajouternoteassignmenteleve",
+    GET_ASSIGNMENT_ELEVE: '/eleve'
   },
   MATIERE_API:'/api/matiere',
   MATIERE:{
