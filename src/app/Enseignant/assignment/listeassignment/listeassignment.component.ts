@@ -53,6 +53,7 @@ export class ListeassignmentComponent implements OnInit {
     dateFin: undefined
   };
   SuccessMessage = "";
+  titreDestination = "Détails d'un assignment";
   ngOnInit(): void {
     this.getAllAssignmentWithPagination();
     this.getAllMatiere();
