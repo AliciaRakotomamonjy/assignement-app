@@ -10,6 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AssignmentService } from '../../../shared/Services/assignment.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-ajouterassignment',
@@ -40,7 +41,7 @@ export class AjouterassignmentComponent {
   });
   isLinear = false;
   spinner = false
-  constructor(private _formBuilder: FormBuilder, private _snackBar: MatSnackBar, private assignmentService: AssignmentService) { }
+  constructor(private _formBuilder: FormBuilder, private _snackBar: MatSnackBar, private assignmentService: AssignmentService,private router: Router, private route: ActivatedRoute) { }
   ErreurMessage = ""
   SuccessMessage = "";
 
@@ -72,5 +73,8 @@ export class AjouterassignmentComponent {
         this.isLinear = false
       }
     })
+  }
+  goToListe() {
+    this.router.navigateByUrl("/accueil_Enseignant/listeassignment")
   }
 }

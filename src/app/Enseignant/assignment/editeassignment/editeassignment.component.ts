@@ -85,4 +85,7 @@ export class EditeassignmentComponent implements OnInit {
       }
     })
   }
+  goToListe() {
+    this.router.navigateByUrl("/accueil_Enseignant/listeassignment")
+  }
 }

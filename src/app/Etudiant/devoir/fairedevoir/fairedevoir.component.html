@@ -20,11 +20,12 @@
         <p>{{SuccessMessage}}</p>
      </div>
   }
+@if(Formulaire){
   <mat-stepper [linear]="isLinear" #stepper class="">
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Déscription du devoir</ng-template>
-        <mat-form-field>
+        <mat-form-field style="margin-top: 2%;">
           <mat-label>Déscription</mat-label>
           <input
             matInput
@@ -35,7 +36,7 @@
           />
         </mat-form-field>
         <div>
-          <button mat-button matStepperNext>Suivant</button>
+          <button mat-stroked-button color="primary" matStepperNext>Suivant</button>
         </div>
       </form>
     </mat-step>
@@ -49,9 +50,9 @@
             name="fichier"
             required
           />
-        <div>
-          <button mat-button matStepperPrevious>retour</button>
-          <button mat-button (click)="stepper.reset()">vider</button>
+        <div style="margin-top: 2%;">
+          <button  mat-stroked-button color="primary"  matStepperPrevious>retour</button>
+          <button  mat-stroked-button color="warn"  (click)="stepper.reset()">vider</button>
         </div>
       </form>
     </mat-step>
@@ -67,7 +68,9 @@
     color="primary"
     class="valider"
     [disabled]="spinner"
+    class="ButtonValider"
   >
     Valider
   </button>
+}
 </div>

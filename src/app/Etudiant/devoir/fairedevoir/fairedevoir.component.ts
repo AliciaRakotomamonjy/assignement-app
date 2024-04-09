@@ -49,14 +49,22 @@ export class FairedevoirComponent implements OnInit {
   ErreurMessage = ""
   SuccessMessage = "";
   assignment: Assignment | undefined;
-  assignmentId=""
+  assignmentId = "";
+  Formulaire=true;
   ngOnInit(): void {
     this.GetAssignment();
   }
   GetAssignment() {
     this.assignmentId = this.route.snapshot.params['id'];
     this.assignmentService.GetAssignmentById(this.assignmentId).subscribe((response) => {
-      this.assignment = response
+      this.assignment = response;
+      const dateLimite = new Date(this.assignment.dateLimite);
+      const comparaison = dateLimite.getTime() - new Date().getTime();
+      if (comparaison < 0) {
+        this.ErreurMessage = "Vous ne pouvez pas faire cette assignment car la date limite est dépassée.";
+        this.isLinear = true;
+        this.Formulaire=false;
+      }
     })
   }
   Valider() {
@@ -68,9 +76,9 @@ export class FairedevoirComponent implements OnInit {
       duration: 2 * 1000,
     });
     if (this.fichier == undefined) {
-      this.ErreurMessage="Veuillez remplir les champs svp"
-      this.spinner=false;
-      this.isLinear=false;
+      this.ErreurMessage = "Veuillez remplir les champs svp"
+      this.spinner = false;
+      this.isLinear = false;
       return;
     }
     const formData = new FormData();
