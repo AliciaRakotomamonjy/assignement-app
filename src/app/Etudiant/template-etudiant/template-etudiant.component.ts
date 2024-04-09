@@ -8,6 +8,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { UtilisateurService } from '../../shared/Services/utilisateur.service';
+import { environment } from '../../../environments/environment.development';
 
 
 
@@ -22,11 +23,12 @@ export class TemplateEtudiantComponent implements OnInit {
   menus = [
     { link: 'les_devoirs', icon: 'list devoir', text: 'La liste des assignments', active: true },
     { link: 'mesdevoirs', icon: 'person', text: 'Mes devoirs', active: false },
-
+    { link: 'profile', icon: 'person', text: 'Profil', active: false },
   ];
   nom = ""
   prenom = ""
-
+  URL_IMAGE=environment.API_URL+environment.IMAGE_API;
+  img=""
   selectedTitle = "";
   constructor(private utilisateurService: UtilisateurService, private router: Router,private route: ActivatedRoute) { }
 
@@ -35,9 +37,10 @@ export class TemplateEtudiantComponent implements OnInit {
       const titre = params['titre'];
       this.selectedTitle = titre || this.menus[0]?.text || '';
    });
-  
+
     this.nom = this.utilisateurService.getInfoFromToken('nom');
     this.prenom = this.utilisateurService.getInfoFromToken('prenom');
+    this.img=this.URL_IMAGE+'/'+this.utilisateurService.getInfoFromToken('photo');
   }
   onItemClick(clickedItem: any) {
     this.selectedTitle = clickedItem.text;

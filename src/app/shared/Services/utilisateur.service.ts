@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment.development';
 import { Observable } from 'rxjs';
 import moment from 'moment';
 import { jwtDecode } from 'jwt-decode';
+import { Utilisateur } from '../models/utilisateur.model';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,11 @@ export class UtilisateurService {
       console.error('Erreur lors du décodage du token JWT :', error);
       return null;
     }
+  }
+  ModifierUtilisateur(formData:any |undefined):Observable<any>{
+    let url = environment.API_URL + environment.UTILISATEUR_API + environment.UTILISATEUR.MODIFIER_PROFILE;
+    console.log(url);
+    return this.httpClient.put(url, formData);
   }
   logoutUtiliateur(): void {
     localStorage.removeItem(environment.UTILISATEUR_SESSION_KEY);

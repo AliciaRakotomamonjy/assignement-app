@@ -16,7 +16,8 @@ import { etudiantGuard } from './shared/guard/etudiant.guard';
 import { FairedevoirComponent } from './Etudiant/devoir/fairedevoir/fairedevoir.component';
 import { MesDevoirsComponent } from './Etudiant/devoir/mes-devoirs/mes-devoirs.component';
 import { DetailDevoirComponent } from './Etudiant/devoir/detail-devoir/detail-devoir.component';
-
+import { ProfileEtudiantComponent } from './Etudiant/profile-etudiant/profile-etudiant.component';
+import { ModifierProfileEtudiantComponent } from './Etudiant/profile-etudiant/modifier-profile-etudiant/modifier-profile-etudiant.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -27,7 +28,7 @@ export const routes: Routes = [
     children:[
       {
         path: '',
-        redirectTo: 'les_devoirs', 
+        redirectTo: 'les_devoirs',
         pathMatch: 'full'
       },
       {
@@ -42,6 +43,13 @@ export const routes: Routes = [
       {
         path: 'detailassignmenteleve/:id', component: DetailDevoirComponent
       },
+      {
+        path: 'profile', component: ProfileEtudiantComponent
+      },
+      {
+        path: 'modifier_profile', component: ModifierProfileEtudiantComponent
+      },
+
     ]
   },
   {
@@ -49,7 +57,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'listeassignment', 
+        redirectTo: 'listeassignment',
         pathMatch: 'full'
       },
       {

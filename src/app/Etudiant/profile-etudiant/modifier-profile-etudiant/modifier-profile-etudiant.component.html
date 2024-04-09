@@ -1,0 +1,86 @@
+<mat-card>
+  <mat-card-content>
+    @if(ErreurMessage!=""){
+    <div class="alert-danger">
+      <p>{{ ErreurMessage }}</p>
+    </div>
+    } @if(SuccessMessage!=""){
+    <div class="alert-success">
+      <p>{{ SuccessMessage }}</p>
+    </div>
+    }
+    <div class="container">
+      <div class="photo">
+        <div>
+          <img
+            class="photo-image"
+            alt="Photo enseignant"
+            src="{{ img }}"
+            width="250"
+            height="250"
+          />
+        </div>
+        <!-- <div class="photo-bouton">
+                  <span>CHANGER L'IMAGE</span>
+              </div> -->
+      </div>
+      <div class="information">
+        <h3>Personnaliser le Profil</h3>
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label> Nom </mat-label>
+            <input
+              matInput
+              placeholder="votre : nom"
+              [(ngModel)]="nom"
+              name="nom"
+            />
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label> Prénom </mat-label>
+            <input
+              matInput
+              placeholder="votre : prenom"
+              [(ngModel)]="prenom"
+              name="prenom"
+            />
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label> Adresse-Mail </mat-label>
+            <input
+              matInput
+              placeholder="votre : email"
+              [(ngModel)]="email"
+              name="email"
+              readonly
+            />
+          </mat-form-field>
+          <label for="image">choisir une photo de profile</label>
+          <br />
+          <input
+            style="margin-top: 2%"
+            type="file"
+            id="image"
+            (change)="selectFile($event)"
+            name="image"
+            required
+          />
+          <br />
+          @if(spinner){
+          <div class="div-spinner">
+            <mat-spinner [diameter]="50"></mat-spinner>
+          </div>
+          }
+          <button
+            class="button-item"
+            mat-stroked-button
+            color="primary"
+            (click)="Valider()"
+          >
+            Valider
+          </button>
+        </form>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -5,6 +5,8 @@ export const environment = {
   API_URL: 'http://localhost:3001',
 
   AUTH_API: '/api/auth',
+  IMAGE_API:'/api/img',
+  FICHIER_API:'/api/fichier_assignment_eleve',
   AUTH: {
     LOGIN: '/login',
     INSCRIPTION: "/inscription"
@@ -13,7 +15,8 @@ export const environment = {
   UTILISATEUR_ROLE_KEY:'UTILISATEUR_ROLE',
   UTILISATEUR_API: '/api/utilisateur',
   UTILISATEUR: {
-    FAIRE_LE_DEVOIR: '/fairedevoir'
+    FAIRE_LE_DEVOIR: '/fairedevoir',
+    MODIFIER_PROFILE:'/modifier_profile'
   },
 
   ASSIGNMENT_API: '/api/assignment',
@@ -33,6 +36,6 @@ export const environment = {
   MATIERE:{
     GET_ALL_MATIERE:'/getAllMatiere'
   }
-    
+
 
 };
