@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const angularBuildPath = path.join(__dirname, 'dist/assignement-app');
+const angularBuildPath = path.join(__dirname, 'dist/assignement-app/browser');
 app.use(express.static(angularBuildPath));
 app.get('*', (req, res) => {
   res.sendFile(path.join(angularBuildPath, 'index.html'));
