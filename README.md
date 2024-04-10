@@ -1,27 +1,73 @@
-# AssignementApp
+# Contributions au Projet Assignment
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.1.
+## Rakotomamonjy Alicia
 
-## Development server
+- **Mise en place de l'environnement de développement :**
+  - Configuration de Git, Angular, MongoDB, Express, etc.
+- **Template avec menu :**
+  - Création d'un modèle de page avec un menu comprenant toolbar et sidebar.
+- **Fiche de devoir & liste des devoirs des élèves avec widgets tables :**
+  - Mise en place de la vue des devoirs et des listes de devoirs des élèves avec des widgets tables.
+- **Affichage de devoirs rendus et non rendus avec drag and drop :**
+  - Implémentation de la fonctionnalité permettant d'afficher les devoirs rendus et non rendus avec la possibilité de les trier par glisser-déposer.
+- **Attribution de notes aux devoirs :**
+  - Développement de la fonctionnalité permettant aux enseignants d'attribuer des notes aux devoirs avec notifications snack-bar.
+- **Profil professeur avec édition de profil et import de photo de profil :**
+  - Création de la page de profil du professeur avec possibilité d'édition de profil et d'import de photo de profil.
+- **Déploiement :**
+  - Déploiement du backend sur [https://mbds-assignement-api.onrender.com](https://mbds-assignement-api.onrender.com).
+  - Déploiement du frontend 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Ratsimbazafy Henintsoa Elysée
 
-## Code scaffolding
+- **Login (back et front) avec Token :**
+  - Implémentation de la fonctionnalité de connexion à l'application.
+  - Utilisation de snack-bar et `<mat-progress-spinner>` pour les notifications et les indicateurs de chargement.
+  - Configuration et intégration de l'envoi de courriels aux utilisateurs après leur conneexion.
+- **Inscription :**
+  - Mise en place de la fonctionnalité d'inscription avec snack-bar et `<mat-progress-spinner>`.
+  - Configuration et intégration de l'envoi de courriels aux utilisateurs après leur inscription.
+- **Affichage d'assignments avec `<mat-paginator>` :**
+  - Développement de la fonctionnalité pour afficher les devoirs avec pagination.
+- **Ajout de devoir en utilisant stepper :**
+  - Implémentation de l'ajout de devoirs via un processus de type stepper.
+  - Intégration de la fonctionnalité d'envoi de notifications par courriel aux étudiants.
+- **Édition et suppression de devoir :**
+  - Ajout des fonctionnalités d'édition et de suppression de devoirs avec notifications snack-bar et `<mat-progress-spinner>`.
+- **Liste de devoirs pour les élèves :**
+  - Développement de la fonctionnalité permettant aux élèves de voir la liste des devoirs avec des widgets tables et `<mat-progress-spinner>` pour les indicateurs de chargement.
+- **Faire les devoirs avec import de fichier :**
+  - Mise en œuvre de la fonctionnalité permettant aux élèves de soumettre leurs devoirs en exportant des fichiers.
+- **Profil élève avec édition de profil et import de photo de profil :**
+  - Implémentation de la page de profil élève avec possibilité d'édition de profil et d'import de photo de profil.
+- **Déploiement du Front-end Angular :**
+  - Création d'un serveur Node.js pour héberger le build du projet Angular. Le build a été généré avec la commande `ng build`, et un serveur Node  `app.js` a été configuré pour servir les fichiers statiques générés lors de la construction de l'application Angular.
+## Contribution commune
+- **Conception et création des modèles sur Angular et Express :**
+  - Définition des modèles nécessaires à l'application sur les frameworks Angular et Express.
+- **Vidéo**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Instructions pour exécuter le projet Assignment
+1. **API Backend :**
+- Accédez au dossier `assignment-api`.
+- Installez les dépendances en exécutant la commande suivante :
+  ```
+  npm install
+  ```
+- Démarrez l'API localement en exécutant la commande :
+  ```
+  npm start
+  ```
+L'API sera disponible à l'adresse http://localhost:3001.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. **Application Frontend Angular :**
+- Accédez au dossier `assignment-app`.
+- Si vous souhaitez utiliser l'API localement, ouvrez le fichier `src/environments/environment.ts` et modifiez la valeur de `API_URL` pour `http://localhost:3001`.
+- Installez les dépendances en exécutant la commande suivante :
+  ```
+  npm install
+  ```
+- Lancez l'application en exécutant la commande :
+  ```
+  ng serve 
+  ```
