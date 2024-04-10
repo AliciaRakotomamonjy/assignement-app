@@ -44,6 +44,7 @@ export class FairedevoirComponent implements OnInit {
   });
   isLinear = false;
   spinner = false
+  spinner2 = true
   constructor(private _formBuilder: FormBuilder, private _snackBar: MatSnackBar, private assignmentService: AssignmentService, private router: Router,
     private route: ActivatedRoute) { }
   ErreurMessage = ""
@@ -58,6 +59,7 @@ export class FairedevoirComponent implements OnInit {
     this.assignmentId = this.route.snapshot.params['id'];
     this.assignmentService.GetAssignmentById(this.assignmentId).subscribe((response) => {
       this.assignment = response;
+      this.spinner2=false;
       const dateLimite = new Date(this.assignment.dateLimite);
       const comparaison = dateLimite.getTime() - new Date().getTime();
       if (comparaison < 0) {
@@ -106,5 +108,8 @@ export class FairedevoirComponent implements OnInit {
   }
   selectFile(event: any) {
     this.fichier = event.target.files[0];
+  }
+  goToListe(){
+    this.router.navigateByUrl("/accueil_Etudiant/les_devoirs")
   }
 }

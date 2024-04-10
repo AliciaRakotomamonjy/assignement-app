@@ -22,7 +22,7 @@ import { environment } from '../../../environments/environment.development';
 export class TemplateEtudiantComponent implements OnInit {
   menus = [
     { link: 'les_devoirs', icon: 'list devoir', text: 'La liste des assignments', active: true },
-    { link: 'mesdevoirs', icon: 'person', text: 'Mes devoirs', active: false },
+    { link: 'mesdevoirs', icon: 'assignment', text: 'Mes devoirs', active: false },
     { link: 'profile', icon: 'person', text: 'Profil', active: false },
   ];
   nom = ""
@@ -51,5 +51,8 @@ export class TemplateEtudiantComponent implements OnInit {
   deconnexion() {
     this.utilisateurService.logoutUtiliateur();
     this.router.navigateByUrl("login");
+  }
+  goToProfile(){
+    this.router.navigateByUrl("/accueil_Etudiant/profile");
   }
 }
