@@ -43,7 +43,7 @@
 - **Déploiement du Front-end Angular :**
   - Création d'un serveur Node.js pour héberger le build du projet Angular. Le build a été généré avec la commande `ng build`, et un serveur Node  `app.js` a été configuré pour servir les fichiers statiques générés lors de la construction de l'application Angular.
 ## Contribution commune
-- **Conception avec création des modèles sur Angular et Express :**
+- **Conception et création des modèles sur Angular et Express :**
   - Définition des modèles nécessaires à l'application sur les frameworks Angular et Express.
 - **Vidéo**
 
