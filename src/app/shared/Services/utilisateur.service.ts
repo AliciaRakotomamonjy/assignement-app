@@ -4,7 +4,6 @@ import { environment } from '../../../environments/environment.development';
 import { Observable } from 'rxjs';
 import moment from 'moment';
 import { jwtDecode } from 'jwt-decode';
-import { Utilisateur } from '../models/utilisateur.model';
 
 @Injectable({
   providedIn: 'root'
