@@ -24,7 +24,7 @@ export class DetailDevoirComponent {
   erreurMessage = ""
 
   constructor(
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
     private assignmentEleveService: AssignmentEleveService,
     private dialog: MatDialog,
     private snackbar: MatSnackBar,
@@ -68,7 +68,7 @@ export class DetailDevoirComponent {
           this.assignmentEleveTransmis = response?.result;
           this.isLoading = false;
           const config = new MatSnackBarConfig();
-          config.panelClass = ['custom-snackbar']; 
+          config.panelClass = ['custom-snackbar'];
           config.duration = 3000;
           this.snackbar.open('Note attribué avec succès','Fermer',config)
         }, (error: HttpErrorResponse) => {
@@ -81,7 +81,7 @@ export class DetailDevoirComponent {
             this.isLoading = false;
           }
           const config = new MatSnackBarConfig();
-          config.panelClass = ['custom-snackbar']; 
+          config.panelClass = ['custom-snackbar'];
           config.duration = 3000;
           this.snackbar.open(this.erreurMessage,'Fermer',config)
         })
