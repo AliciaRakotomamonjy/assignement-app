@@ -20,7 +20,7 @@
 
 ## Ratsimbazafy Henintsoa Elysée
 
-- **Login (back et front) avec Token :**
+- **Login avec Token :**
   - Implémentation de la fonctionnalité de connexion à l'application.
   - Utilisation de snack-bar et `<mat-progress-spinner>` pour les notifications et les indicateurs de chargement.
   - Configuration et intégration de l'envoi de courriels aux utilisateurs après leur conneexion.
