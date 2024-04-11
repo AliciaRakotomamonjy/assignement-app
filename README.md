@@ -40,8 +40,17 @@
   - Intégration de la fonctionnalité d'envoi de notifications par courriel aux étudiants.
 - **Édition et suppression de devoir :**
   - Ajout des fonctionnalités d'édition et de suppression de devoirs avec notifications snack-bar et `<mat-progress-spinner>`.
-- **Liste de devoirs pour les élèves :**
-  - Développement de la fonctionnalité permettant aux élèves de voir la liste des devoirs avec des widgets tables et `<mat-progress-spinner>` pour les indicateurs de chargement.
+- **Liste des Assignments pour les Élèves :**
+  - Création d'une fonctionnalité offrant aux élèves la possibilité de consulter la liste des devoirs de manière intuitive, en utilisant des tables pour l'affichage et `<mat-progress-spinner>` pour les indicateurs de chargement. Cette fonctionnalité est enrichie par la pagination et des options de filtrage avancées, améliorant l'expérience utilisateur par une navigation et une recherche optimisées. Les aspects clés comprennent :
+    - **Widgets Tables :** Utilisés pour présenter les devoirs de manière organisée, permettant aux élèves de parcourir facilement les informations pertinentes.
+    - **Indicateurs de Chargement :** `<mat-progress-spinner>` indique visuellement l'état de chargement des devoirs, fournissant un feedback instantané et améliorant la réactivité de l'interface.
+    - **Pagination :** Permet de naviguer entre les pages de devoirs, évitant ainsi la surcharge visuelle et facilitant l'accès aux différentes sections de la liste.
+    - **Filtrage :** Comme pour l'affichage des assignments, les élèves peuvent filtrer les devoirs selon des critères détaillés pour affiner leur recherche :
+      - **Par Matière :** Aide les élèves à trouver les devoirs relatifs à une matière spécifique de façon rapide et efficace.
+      - **Par Date Limite :** Les options de filtrage par date limite sont identiques à celles mentionnées précédemment, offrant la flexibilité nécessaire pour afficher les devoirs selon :
+        - **Une date spécifiée**, montrant les devoirs avec une date limite postérieure.
+        - **Deux dates spécifiées**, restreignant l'affichage aux devoirs dont la date limite se situe entre ces deux points.
+        - **Une deuxième date spécifiée seule**, affichant uniquement les devoirs dont la date limite est strictement antérieure à cette date.
 - **Faire les devoirs avec import de fichier :**
   - Mise en œuvre de la fonctionnalité permettant aux élèves de soumettre leurs devoirs en exportant des fichiers.
 - **Profil élève avec édition de profil et import de photo de profil :**
