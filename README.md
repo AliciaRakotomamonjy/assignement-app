@@ -27,8 +27,14 @@
 - **Inscription :**
   - Mise en place de la fonctionnalité d'inscription avec snack-bar et `<mat-progress-spinner>`.
   - Configuration et intégration de l'envoi de courriels aux utilisateurs après leur inscription.
-- **Affichage d'assignments avec `<mat-paginator>` :**
+- **Pagination, Filtrage et Affichage de la liste des Assignments avec `<mat-paginator>` :**
   - Développement de la fonctionnalité pour afficher les devoirs avec pagination.
+  - Filtrage : Permet aux utilisateurs de filtrer les assignments de manière efficace selon des critères spécifiques :
+      - **Par Matière :** Aide à trouver rapidement les assignments d'une matière donnée.
+      - **Par Date Limite :** Offre la possibilité de filtrer les assignments en fonction de leur date limite, avec des conditions flexibles :
+        - Si **une date** est spécifiée, les assignments affichés auront une date limite **supérieure** à cette date.
+        - Si **deux dates** sont données, seuls les assignments situés **entre** ces dates seront présentés.
+        - Si **seulement la deuxième date** est spécifiée, les assignments montrés auront une date limite **strictement inférieure** à cette date.
 - **Ajout de devoir en utilisant stepper :**
   - Implémentation de l'ajout de devoirs via un processus de type stepper.
   - Intégration de la fonctionnalité d'envoi de notifications par courriel aux étudiants.
