@@ -27,7 +27,7 @@
 - **Inscription :**
   - Mise en place de la fonctionnalité d'inscription avec snack-bar et `<mat-progress-spinner>`.
   - Configuration et intégration de l'envoi de courriels aux utilisateurs après leur inscription.
-- **Pagination, Filtrage et Affichage de la liste des Assignments avec `<mat-paginator>` :**
+- **Pagination, Filtrage et Affichage de la liste des Assignments avec `<mat-paginator>` pour les professeurs:**
   - Développement de la fonctionnalité pour afficher les devoirs avec pagination.
   - Filtrage : Permet aux utilisateurs de filtrer les assignments de manière efficace selon des critères spécifiques :
       - **Par Matière :** Aide à trouver rapidement les assignments d'une matière donnée.
