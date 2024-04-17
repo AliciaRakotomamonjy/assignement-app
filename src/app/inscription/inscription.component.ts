@@ -26,8 +26,8 @@ export class InscriptionComponent {
   email = "";
   role="";
   libelle="";
-  motdepasse = "";
-  confirmationmotdepasse = "";
+  motdepasse = "ABC123abc.";
+  confirmationmotdepasse = "ABC123abc.";
   hide = true;
   hide2 = true;
   spinner = false;
