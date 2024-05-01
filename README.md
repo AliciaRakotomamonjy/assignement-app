@@ -16,7 +16,7 @@
   - Création de la page de profil du professeur avec possibilité d'édition de profil et d'import de photo de profil.
 - **Déploiement :**
   - Déploiement du backend sur [https://mbds-assignement-api.onrender.com](https://mbds-assignement-api.onrender.com).
-  - Déploiement du frontend 
+  - Déploiement du frontend : https://mbds-assignement-app.onrender.com/login?fbclid=IwZXh0bgNhZW0CMTAAAR2WNDsA6hUyHr4degDwzfnmdKVGifn_qyo5_RRpMjNYx2QCji83IA6zoDQ_aem_ATzhgpmRrOsEpFYxmn5HOHYsvnWovQw63DyftSVShOu2fYfxy2OlGRy_M96jt9S7_dprJbPsb5TAVXd0rNHCH84O
 
 ## Ratsimbazafy Henintsoa Elysée
 
@@ -52,11 +52,12 @@
         - **Deux dates spécifiées**, restreignant l'affichage aux devoirs dont la date limite se situe entre ces deux points.
         - **Une deuxième date spécifiée seule**, affichant uniquement les devoirs dont la date limite est strictement antérieure à cette date.
 - **Faire les devoirs avec import de fichier :**
-  - Mise en œuvre de la fonctionnalité permettant aux élèves de soumettre leurs devoirs en exportant des fichiers.
+  - Mise en œuvre de la fonctionnalité permettant aux élèves de soumettre leurs devoirs en important des fichiers.
 - **Profil élève avec édition de profil et import de photo de profil :**
   - Implémentation de la page de profil élève avec possibilité d'édition de profil et d'import de photo de profil.
 - **Déploiement du Front-end Angular :**
   - Création d'un serveur Node.js pour héberger le build du projet Angular. Le build a été généré avec la commande `ng build`, et un serveur Node  `app.js` a été configuré pour servir les fichiers statiques générés lors de la construction de l'application Angular.
+- **Création des fonctions Node.js pour générer des données simulées dans la base de données.**
 ## Contribution commune
 - **Conception et création des modèles sur Angular et Express :**
   - Définition des modèles nécessaires à l'application sur les frameworks Angular et Express.
