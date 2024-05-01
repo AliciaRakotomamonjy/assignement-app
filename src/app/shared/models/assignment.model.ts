@@ -7,5 +7,5 @@ export class Assignment {
   matiere!: Matiere;
   datePublication!: Date;
   dateLimite!:Date;
-  assignmenteleves: AssignmentElve[] = []; 
+  assignmenteleves: AssignmentElve[] = [];
 }
