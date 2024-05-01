@@ -8,6 +8,12 @@
   - Création d'un modèle de page avec un menu comprenant toolbar et sidebar.
 - **Fiche de devoir & liste des devoirs des élèves avec widgets tables :**
   - Mise en place de la vue des devoirs et des listes de devoirs des élèves avec des widgets tables.
+  - Filtrage : Permet aux élèves de filtrer les assignments de manière efficace selon des critères spécifiques :
+      - **Par Matière :** Aide à trouver rapidement les assignments d'une matière donnée.
+      - **Par Date Limite :** Offre la possibilité de filtrer les assignments en fonction de leur date limite, avec des conditions flexibles :
+        - Si **une date** est spécifiée, les assignments affichés auront une date limite **supérieure** à cette date.
+        - Si **deux dates** sont données, seuls les assignments situés **entre** ces dates seront présentés.
+        - Si **seulement la deuxième date** est spécifiée, les assignments montrés auront une date limite **strictement inférieure** à cette date.
 - **Affichage de devoirs rendus et non rendus avec drag and drop :**
   - Implémentation de la fonctionnalité permettant d'afficher les devoirs rendus et non rendus avec la possibilité de les trier par glisser-déposer.
 - **Attribution de notes aux devoirs :**
@@ -29,7 +35,7 @@
   - Configuration et intégration de l'envoi de courriels aux utilisateurs après leur inscription.
 - **Pagination, Filtrage et Affichage de la liste des Assignments avec `<mat-paginator>` pour les professeurs:**
   - Développement de la fonctionnalité pour afficher les devoirs avec pagination.
-  - Filtrage : Permet aux utilisateurs de filtrer les assignments de manière efficace selon des critères spécifiques :
+  - Filtrage : Permet aux élèves de filtrer les assignments de manière efficace selon des critères spécifiques :
       - **Par Matière :** Aide à trouver rapidement les assignments d'une matière donnée.
       - **Par Date Limite :** Offre la possibilité de filtrer les assignments en fonction de leur date limite, avec des conditions flexibles :
         - Si **une date** est spécifiée, les assignments affichés auront une date limite **supérieure** à cette date.
