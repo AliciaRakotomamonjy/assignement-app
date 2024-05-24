@@ -8,6 +8,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { UtilisateurService } from '../../shared/Services/utilisateur.service';
+import { environment } from '../../../environments/environment.development';
 
 
 @Component({
@@ -23,8 +24,9 @@ export class TemplateEnseignantComponent implements OnInit {
     { link: 'ajouterassignment', icon: 'assignment-add', text: 'Ajouter assignment', active: false },
     { link: 'profile', icon: 'person', text: 'Profil', active: false },
   ];
-  nom = ''
-  prenom = ''
+  nom = '';
+  prenom = '';
+  img ='';
   selectedTitle = "";
   constructor(private utilisateurService: UtilisateurService, private router: Router,private route: ActivatedRoute) { }
 
@@ -32,6 +34,7 @@ export class TemplateEnseignantComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       const titre = params['titre'];
       this.selectedTitle = titre || this.menus[0]?.text || '';
+      this.img=environment.API_URL+environment.IMAGE_API+'/'+this.utilisateurService.getInfoFromToken('photo');
    });
   
     this.nom = this.utilisateurService.getInfoFromToken('nom');
