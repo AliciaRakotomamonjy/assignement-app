@@ -1,34 +1,38 @@
 <mat-card>
     <mat-card-content>
-        <div class="container" >
-            <div class="photo" >
+        <div class="container">
+            <div class="photo">
                 <div>
-                    <img class="photo-image" alt="Photo enseignant" src="../../../assets/images/profile/male-teacher.png" width="250" height="250" />
+                    <img class="photo-image" alt="Photo enseignant"
+                        src="{{img}}" width="250" height="250" />
                 </div>
                 <!-- <div class="photo-bouton">
                     <span>CHANGER L'IMAGE</span>
                 </div> -->
 
             </div>
-            <div class="information" >
-                <div class="information-item" >
-                    <div class="information-item__label" >Nom:</div>
-                    <div class="information-item__value" >{{ profile?.nom }}</div>
+            <div class="information">
+                <div class="information-item">
+                    <div class="information-item__label">Nom:</div>
+                    <div class="information-item__value">{{ profile?.nom }}</div>
                 </div>
 
-                <div class="information-item" >
-                    <div class="information-item__label" >Prénom:</div>
-                    <div class="information-item__value" >{{ profile?.prenom }}</div>
+                <div class="information-item">
+                    <div class="information-item__label">Prénom:</div>
+                    <div class="information-item__value">{{ profile?.prenom }}</div>
                 </div>
 
-                <div class="information-item" >
-                    <div class="information-item__label" >Email:</div>
-                    <div class="information-item__value" >{{ profile?.email }}</div>
+                <div class="information-item">
+                    <div class="information-item__label">Email:</div>
+                    <div class="information-item__value">{{ profile?.email }}</div>
                 </div>
-                <div class="information-item" >
-                  <div class="information-item__label" >Matière:</div>
-                  <div class="information-item__value" >{{ matiere }}</div>
-              </div>
+                <div class="information-item">
+                    <div class="information-item__label">Matière:</div>
+                    <div class="information-item__value">{{ matiere }}</div>
+                </div>
+                <a routerLink="/accueil_Enseignant/modificationprofile">
+                    <button mat-stroked-button color="primary">Modifier</button>
+                </a>
             </div>
         </div>
     </mat-card-content>

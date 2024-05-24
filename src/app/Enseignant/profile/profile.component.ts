@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { MatCard, MatCardContent } from '@angular/material/card';
+import { MatCard, MatCardContent, MatCardModule } from '@angular/material/card';
 import { Utilisateur } from '../../shared/models/utilisateur.model';
 import { UtilisateurService } from '../../shared/Services/utilisateur.service';
+import { MatButtonModule } from '@angular/material/button';
+import { RouterLink } from '@angular/router';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [MatCard,MatCardContent],
+  imports: [MatCardModule, MatButtonModule, RouterLink],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
@@ -15,6 +18,7 @@ export class ProfileComponent implements OnInit {
   profile: Utilisateur | undefined;
   matiere=""
   isLoading = true;
+  img = "";
 
   constructor(private utilisateurService: UtilisateurService){
 
@@ -30,5 +34,6 @@ export class ProfileComponent implements OnInit {
     this.profile.role = this.utilisateurService.getInfoFromToken('role');
     this.matiere=this.utilisateurService.getInfoFromToken('matiere_libelle');
     this.isLoading = false;
+    this.img=environment.API_URL+environment.IMAGE_API+'/'+this.utilisateurService.getInfoFromToken('photo');
   }
 }
