@@ -16,11 +16,13 @@ import { DialogNoteComponent } from '../../dialog-note/dialog-note.component';
 import { AssignmentEleveService } from '../../../shared/Services/assignment-eleve.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-detail-assignment',
   standalone: true,
-  imports: [MatProgressSpinnerModule, CommonModule, MatTableModule, MatButtonModule, MatButtonToggleModule, MatChipsModule,CdkDropListGroup, CdkDropList, CdkDrag],
+  imports: [MatProgressSpinnerModule, CommonModule, MatTableModule, MatButtonModule, MatButtonToggleModule, MatChipsModule, CdkDropListGroup, CdkDropList, CdkDrag, MatIconModule, MatTooltipModule],
   templateUrl: './detail-assignment.component.html',
   styleUrl: './detail-assignment.component.css'
 })
@@ -29,15 +31,15 @@ export class DetailAssignmentComponent implements OnInit {
   assignmentTransmis: Assignment | undefined;
   isLoading = false;
   erreurMessage = "";
-  displayedColumns = ["description", "eleve", "rendu", "details"]
+  displayedColumns = ["description", "eleve", "rendu", "fichier", "details"]
   assignmentEleves: AssignmentElve[] = [];
   modeAffichage = "table";
   assignmentEleveRendus: AssignmentElve[] = [];
   assignmentEleveNonRendus: AssignmentElve[] = [];
 
   constructor(
-    private route: ActivatedRoute, 
-    private router: Router, 
+    private route: ActivatedRoute,
+    private router: Router,
     private assignmentService: AssignmentService,
     private assignmentEleveService: AssignmentEleveService,
     private dialog: MatDialog,
@@ -84,7 +86,7 @@ export class DetailAssignmentComponent implements OnInit {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      
+
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
@@ -95,15 +97,15 @@ export class DetailAssignmentComponent implements OnInit {
     }
   }
 
-  openDialog(assignmentEleve: AssignmentElve){
+  openDialog(assignmentEleve: AssignmentElve) {
     const dialogRef = this.dialog.open(DialogNoteComponent, {
-      data: {note: "", remarque: ""},
+      data: { note: "", remarque: "" },
       height: '400px',
       width: '500px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result?.action === 'validate'){
+      if (result?.action === 'validate') {
         this.isLoading = true;
         if (assignmentEleve) {
           assignmentEleve.note = result?.data?.note;
@@ -113,9 +115,9 @@ export class DetailAssignmentComponent implements OnInit {
           assignmentEleve = response?.result;
           this.isLoading = false;
           const config = new MatSnackBarConfig();
-          config.panelClass = ['custom-snackbar']; 
+          config.panelClass = ['custom-snackbar'];
           config.duration = 3000;
-          this.snackbar.open('Note attribué avec succès','Fermer',config)
+          this.snackbar.open('Note attribué avec succès', 'Fermer', config)
         }, (error: HttpErrorResponse) => {
           if (error.error instanceof ErrorEvent) {
             this.erreurMessage = 'Une erreur s\'est produite : ' + error.error.message;
@@ -126,11 +128,36 @@ export class DetailAssignmentComponent implements OnInit {
             this.isLoading = false;
           }
           const config = new MatSnackBarConfig();
-          config.panelClass = ['custom-snackbar']; 
+          config.panelClass = ['custom-snackbar'];
           config.duration = 3000;
-          this.snackbar.open(this.erreurMessage,'Fermer',config)
+          this.snackbar.open(this.erreurMessage, 'Fermer', config)
         })
       }
+    });
+  }
+
+  telecharger(assignmentEleve: AssignmentElve) {
+    this.isLoading = true;
+    this.assignmentEleveService.TelechargerFichierEleve(assignmentEleve).subscribe(response => {
+      const blob = new Blob([response], { type: 'application/octet-stream' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = assignmentEleve?.fichier;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+      this.isLoading = false;
+    },
+    error => {
+      console.error('Une erreur s\'est produite lors du téléchargement du fichier :', error);
+      const config = new MatSnackBarConfig();
+      config.panelClass = ['custom-snackbar'];
+      config.duration = 3000;
+      this.snackbar.open(error?.error?.message || "Une erreur s'est produite !" , 'Fermer', config)
+      // Traitez l'erreur ici, par exemple affichez un message d'erreur à l'utilisateur
+      this.isLoading = false;
     });
   }
 
