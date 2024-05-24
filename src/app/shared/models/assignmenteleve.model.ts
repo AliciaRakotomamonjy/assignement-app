@@ -11,4 +11,5 @@ export class AssignmentElve {
   dateRendu!:Date;
   note!:number;
   remarque!:string;
+  fichier!:string;
 }
