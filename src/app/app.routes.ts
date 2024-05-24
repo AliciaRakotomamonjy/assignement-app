@@ -18,6 +18,7 @@ import { MesDevoirsComponent } from './Etudiant/devoir/mes-devoirs/mes-devoirs.c
 import { DetailDevoirComponent } from './Etudiant/devoir/detail-devoir/detail-devoir.component';
 import { ProfileEtudiantComponent } from './Etudiant/profile-etudiant/profile-etudiant.component';
 import { ModifierProfileEtudiantComponent } from './Etudiant/profile-etudiant/modifier-profile-etudiant/modifier-profile-etudiant.component';
+import { ModificationProfileComponent } from './Enseignant/profile/modification-profile/modification-profile.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -77,7 +78,10 @@ export const routes: Routes = [
       },
       {
         path: 'profile', component: ProfileComponent
-      }
+      },
+      {
+        path: 'modificationprofile', component: ModificationProfileComponent
+      },
     ],
   }
 ];
