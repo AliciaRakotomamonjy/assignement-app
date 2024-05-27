@@ -20,9 +20,9 @@ import { environment } from '../../../environments/environment.development';
 })
 export class TemplateEnseignantComponent implements OnInit {
   menus = [
-    { link: 'listeassignment', icon: 'list assignment', text: 'La liste des assignment', active: true },
-    { link: 'ajouterassignment', icon: 'assignment-add', text: 'Ajouter assignment', active: false },
-    { link: 'profile', icon: 'person', text: 'Profil', active: false },
+    { link: 'listeassignment', icon: 'view_quilt', title: 'Liste des devoirs', label: "Liste", active: true },
+    { link: 'ajouterassignment', icon: 'add_circle_outline', title: 'Ajout d\'un devoir',label: "Ajout", active: false },
+    { link: 'profile', icon: 'person_outline', title: 'Profil',label: "Profil", active: false },
   ];
   nom = '';
   prenom = '';
@@ -33,7 +33,7 @@ export class TemplateEnseignantComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       const titre = params['titre'];
-      this.selectedTitle = titre || this.menus[0]?.text || '';
+      this.selectedTitle = titre || this.menus[0]?.title || '';
       this.img=environment.API_URL+environment.IMAGE_API+'/'+this.utilisateurService.getInfoFromToken('photo');
    });
   
@@ -41,7 +41,7 @@ export class TemplateEnseignantComponent implements OnInit {
     this.prenom = this.utilisateurService.getInfoFromToken('prenom');
   }
   onItemClick(clickedItem: any) {
-    this.selectedTitle = clickedItem.text;
+    this.selectedTitle = clickedItem.title;
     this.menus.forEach(item => {
       item.active = (item === clickedItem);
     });

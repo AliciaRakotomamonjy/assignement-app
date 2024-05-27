@@ -39,7 +39,7 @@
 
 .photo-bouton span {
     color: var(--primary);
-    font-family: 'Roboto-Medium';
+    font-family: 'Ubuntu-Medium';
 }
 
 .information{
@@ -56,9 +56,9 @@
 }
 
 .information-item__label{
-    font-family: 'Roboto-Bold';
+    font-family: 'Ubuntu-Bold';
 }
 
 .information-item__value{
-    font-family: 'Roboto-Regular';
+    font-family: 'Ubuntu-Regular';
 }

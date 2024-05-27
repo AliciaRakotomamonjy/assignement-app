@@ -9,5 +9,5 @@
 .custom-snackbar {
     --mdc-snackbar-container-color: var(--primary);
     --mat-mdc-snack-bar-button-color: var(--primary);
-    --mat-mdc-snack-bar-supporting-text-font: 'Roboto-Medium'; 
+    --mat-mdc-snack-bar-supporting-text-font: 'Ubuntu-Medium'; 
 }

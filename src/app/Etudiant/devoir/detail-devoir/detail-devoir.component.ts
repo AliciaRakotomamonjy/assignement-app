@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AssignmentElve } from '../../../shared/models/assignmenteleve.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AssignmentEleveService } from '../../../shared/Services/assignment-eleve.service';
@@ -18,7 +18,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   templateUrl: './detail-devoir.component.html',
   styleUrl: './detail-devoir.component.css'
 })
-export class DetailDevoirComponent {
+export class DetailDevoirComponent implements OnInit {
   assignmentEleveTransmis : AssignmentElve | undefined;
   isLoading = false;
   erreurMessage = ""
@@ -51,10 +51,9 @@ export class DetailDevoirComponent {
   }
 
   openDialog(){
+    console.log("assignmentTransmis",this.assignmentEleveTransmis)
     const dialogRef = this.dialog.open(DialogAssignmentEleveComponent, {
       data: this.assignmentEleveTransmis,
-      height: '400px',
-      width: '500px',
     });
 
     dialogRef.afterClosed().subscribe(result => {

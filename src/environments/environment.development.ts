@@ -2,7 +2,7 @@ export const environment = {
 
   production: false,
 
-  API_URL: 'https://mbds-assignement-api.onrender.com',
+  API_URL: 'http://localhost:3001',
 
   AUTH_API: '/api/auth',
   IMAGE_API:'/api/img',
@@ -32,6 +32,7 @@ export const environment = {
     AJOUTER_NOTE_ASSIGNMENT_ELEVE: "/ajouternoteassignmenteleve",
     GET_ASSIGNMENT_ELEVE: '/eleve'
   },
+  ASSIGNMENTELEVE_API: '/api/assignmentEleve/',
   MATIERE_API:'/api/matiere',
   MATIERE:{
     GET_ALL_MATIERE:'/getAllMatiere'

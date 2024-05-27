@@ -11,7 +11,7 @@
                 <a mat-list-item [routerLink]="menu.link" [class.menu-item]="true" [class.active]="menu.active" (click)="onItemClick(menu)" >
                   <div class="menu-item-text" >
                     <mat-icon>{{menu.icon}}</mat-icon>
-                    <span>{{menu.text}}</span>
+                    <span>{{menu.label}}</span>
                   </div>
 
                 </a>
@@ -21,8 +21,8 @@
         <div>
           <a class="sidenav-logout-item" (click)="deconnexion()" style="cursor: pointer;">
             <div class="sidenav-logout-text" >
-              <mat-icon>power_settings_new</mat-icon>
-              <span>Déconnexion</span>
+              <!-- <mat-icon>power_settings_new</mat-icon> -->
+              <span>Se déconnecter</span>
             </div>
           </a>
         </div>
@@ -34,6 +34,7 @@
         <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Icon button with menu icon">
           <mat-icon>menu</mat-icon>
         </button>
+        <span class="title" >{{selectedTitle}}</span>
         <span class="toolbar-spacer"></span>
         <button  mat-button [matMenuTriggerFor]="toolbarMenu">
           <div class="toolbar-profile">
@@ -47,7 +48,7 @@
         </mat-menu>
       </mat-toolbar>
       <div class="content-container" >
-        <h1>{{selectedTitle}}</h1>
+        <!-- <h1>{{selectedTitle}}</h1> -->
         <router-outlet></router-outlet>
       </div>
     </mat-drawer-content>

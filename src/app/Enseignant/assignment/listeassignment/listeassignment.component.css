@@ -1,3 +1,8 @@
+.consigne {
+  font-family: "Ubuntu-Italic";
+  font-size: 14px;
+}
+
 .spinner
 {
   height: 5%;
@@ -9,7 +14,13 @@
   margin-bottom: 2%;
   margin-top: 2%;
 }
+.filtre-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .filtre{
+  flex: auto;
   margin-right: 2%;
 }
 
@@ -32,4 +43,10 @@
   margin-left: 25%;
   display: flex;
   width: 50%;
+}
+
+.action-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
