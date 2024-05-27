@@ -10,6 +10,28 @@
     margin-top: 10px;
 }
 
+.rendu {
+    color: rgb(43, 180, 43);
+}
+.resume{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.non-rendu{
+    color: rgb(225, 64, 64);
+}
+
+.details-item{
+    height: auto !important;
+}
+
+.details-label{
+    font-family: 'Ubuntu-Medium' !important;
+}
+
+.details-value{
+    font-family: 'Ubuntu-Light' !important;
+}
 
 .custom-button-toggle {
     margin-bottom: 10px;

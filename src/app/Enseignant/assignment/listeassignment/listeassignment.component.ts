@@ -54,6 +54,7 @@ export class ListeassignmentComponent implements OnInit {
   };
   SuccessMessage = "";
   titreDestination = "Détails d'un assignment";
+  titreDestinationModif = "Modification d'un assignment";
   ngOnInit(): void {
     this.getAllAssignmentWithPagination();
     this.getAllMatiere();

@@ -4,12 +4,36 @@
         <mat-spinner diameter="40" color="blue"></mat-spinner>
     </div>
     } @else {
-    <div>
-        <p>Description: {{assignmentTransmis?.description}}</p>
-        <p>Matiere: {{assignmentTransmis?.matiere?.libelle}}</p>
-        <p>Date limite: {{assignmentTransmis?.dateLimite | date: 'EEE d MMMM y': 'fr'}}</p>
-        <p>Date de publication: {{assignmentTransmis?.datePublication | date: 'EEE d MMMM y': 'fr'}}</p>
+    <h3 style="text-align: center;">Résumé du devoir</h3>
+    <div class="resume">
+        <mat-list>
+            <mat-list-item class="details-item">
+                <mat-icon matListItemIcon>description</mat-icon>
+                <div class="details-label" matListItemTitle>Description</div>
+                <div class="details-value" matListItemLine>{{assignmentTransmis?.description}}</div>
+            </mat-list-item>
+            <mat-list-item class="details-item">
+                <mat-icon matListItemIcon>description</mat-icon>
+                <div class="details-label" matListItemTitle>Matière</div>
+                <div class="details-value" matListItemLine>{{assignmentTransmis?.matiere?.libelle}}</div>
+            </mat-list-item>
+            <mat-list-item class="details-item">
+                <mat-icon matListItemIcon>calendar_today</mat-icon>
+                <div class="details-label" matListItemTitle>Date limite</div>
+                <div class="details-value" matListItemLine>{{assignmentTransmis?.dateLimite | date: 'EEE d MMMM y':
+                    'fr'}}</div>
+            </mat-list-item>
+            <mat-list-item class="details-item">
+                <mat-icon matListItemIcon>calendar_today</mat-icon>
+                <div class="details-label" matListItemTitle>Date de publication</div>
+                <div class="details-value" matListItemLine>{{assignmentTransmis?.datePublication | date: 'EEE d MMMM y':
+                    'fr'}}</div>
+            </mat-list-item>
+        </mat-list>
+
     </div>
+    <mat-divider></mat-divider>
+    <h3 style="text-align: center;">Devoir des élèves</h3>
     <div class="custom-button-toggle">
         <mat-chip-listbox (change)="onChipSelect($event)" aria-label="Mode affichage">
             <mat-chip-option value="table" [selected]="modeAffichage === 'table'">Table</mat-chip-option>
@@ -27,29 +51,36 @@
 
         <!-- Name Column -->
         <ng-container matColumnDef="eleve">
-            <th mat-header-cell *matHeaderCellDef> Eleve </th>
+            <th mat-header-cell *matHeaderCellDef> Elève </th>
             <td mat-cell *matCellDef="let element"> {{element?.eleve?.nom +" "+element?.eleve?.prenom}} </td>
         </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="rendu">
             <th mat-header-cell *matHeaderCellDef> Rendu </th>
-            <td mat-cell *matCellDef="let element"> {{element.rendu}} </td>
+            <td mat-cell *matCellDef="let element">
+                @if (element.rendu) {
+                <mat-icon class="rendu">check</mat-icon>
+                } @else {
+                <mat-icon class="non-rendu">close</mat-icon>
+                }
+            </td>
         </ng-container>
 
         <ng-container matColumnDef="fichier">
             <th mat-header-cell *matHeaderCellDef> Fichier </th>
             <td mat-cell *matCellDef="let element">
                 @if(element.fichier){
-                    <button mat-icon-button (click)="telecharger(element)" aria-label="Telechargement du fichier" matTooltip="Télécharger le fichier">
-                        <mat-icon>attach_file</mat-icon>
-                    </button>
+                <button mat-icon-button (click)="telecharger(element)" aria-label="Telechargement du fichier"
+                    matTooltip="Télécharger le fichier">
+                    <mat-icon>attach_file</mat-icon>
+                </button>
                 }
             </td>
         </ng-container>
 
         <ng-container matColumnDef="details">
-            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <th mat-header-cell *matHeaderCellDef> </th>
             <td mat-cell *matCellDef="let element">
                 <button mat-button color="primary" (click)="goToDetailAssignmentEleve(element._id)">Voir
                     détails</button>

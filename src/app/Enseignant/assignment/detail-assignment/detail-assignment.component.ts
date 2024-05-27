@@ -18,11 +18,13 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-detail-assignment',
   standalone: true,
-  imports: [MatProgressSpinnerModule, CommonModule, MatTableModule, MatButtonModule, MatButtonToggleModule, MatChipsModule, CdkDropListGroup, CdkDropList, CdkDrag, MatIconModule, MatTooltipModule],
+  imports: [MatListModule, MatDividerModule, MatProgressSpinnerModule, CommonModule, MatTableModule, MatButtonModule, MatButtonToggleModule, MatChipsModule, CdkDropListGroup, CdkDropList, CdkDrag, MatIconModule, MatTooltipModule],
   templateUrl: './detail-assignment.component.html',
   styleUrl: './detail-assignment.component.css'
 })
@@ -46,6 +48,10 @@ export class DetailAssignmentComponent implements OnInit {
     private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
+    this.getAssignmentEleves();
+  }
+
+  getAssignmentEleves() {
     this.isLoading = true;
     const id = this.route.snapshot.params['id'];
     const assignementTable = this.assignmentService.GetAssignmentByIdWithDetail(id);
@@ -80,6 +86,7 @@ export class DetailAssignmentComponent implements OnInit {
 
   onChipSelect(event: MatChipListboxChange) {
     this.modeAffichage = event.value;
+    this.getAssignmentEleves();
   }
 
   drop(event: CdkDragDrop<AssignmentElve[]>) {
@@ -150,15 +157,15 @@ export class DetailAssignmentComponent implements OnInit {
       window.URL.revokeObjectURL(url);
       this.isLoading = false;
     },
-    error => {
-      console.error('Une erreur s\'est produite lors du téléchargement du fichier :', error);
-      const config = new MatSnackBarConfig();
-      config.panelClass = ['custom-snackbar'];
-      config.duration = 3000;
-      this.snackbar.open(error?.error?.message || "Une erreur s'est produite !" , 'Fermer', config)
-      // Traitez l'erreur ici, par exemple affichez un message d'erreur à l'utilisateur
-      this.isLoading = false;
-    });
+      error => {
+        console.error('Une erreur s\'est produite lors du téléchargement du fichier :', error);
+        const config = new MatSnackBarConfig();
+        config.panelClass = ['custom-snackbar'];
+        config.duration = 3000;
+        this.snackbar.open(error?.error?.message || "Une erreur s'est produite !", 'Fermer', config)
+        // Traitez l'erreur ici, par exemple affichez un message d'erreur à l'utilisateur
+        this.isLoading = false;
+      });
   }
 
 }

@@ -86,7 +86,7 @@
         <a routerLink="/accueil_Enseignant/detailassignment/{{a._id}}" [queryParams]="{titre: titreDestination}"><button
             mat-icon-button color="primary"><mat-icon>assignment</mat-icon></button></a>
         @if(id==a.matiere.professeur._id){
-        <a routerLink="/accueil_Enseignant/editeassignment/{{a._id}}"><button disabled="false" mat-icon-button
+        <a routerLink="/accueil_Enseignant/editeassignment/{{a._id}}" [queryParams]="{titre: titreDestinationModif}"><button disabled="false" mat-icon-button
             color="warning"><mat-icon>edit</mat-icon></button></a>
         } @else {
         <button disabled mat-icon-button color="warning"><mat-icon>edit</mat-icon></button>
