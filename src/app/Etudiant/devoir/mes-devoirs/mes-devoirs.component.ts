@@ -47,7 +47,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 })
 export class MesDevoirsComponent implements OnInit {
   assignmentEleves: AssignmentElve[] = [];
-  displayedColumns: string[] = ['description', 'matiere', 'professeur', 'dateRendu', 'descriptionDevoir','fichier', 'modification'];
+  displayedColumns: string[] = ['description', 'matiere', 'professeur', 'dateRendu', 'descriptionDevoir','rendu','fichier', 'modification'];
   ErreurMessage = ''
   spinner = true
   page = 0;
@@ -59,7 +59,8 @@ export class MesDevoirsComponent implements OnInit {
     idMatiere: undefined,
     dateDebut: undefined,
     dateFin: undefined,
-    description: undefined
+    description: undefined,
+    rendu: undefined
   };
   SuccessMessage = "";
   titreDestination = "Détails d'un devoir d'un élève";

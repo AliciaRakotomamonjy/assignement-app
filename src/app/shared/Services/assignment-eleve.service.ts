@@ -40,6 +40,9 @@ export class AssignmentEleveService {
       if (filtre.description) {
         url += `&description=${filtre?.description}`;
       }
+      if (filtre.rendu) {
+        url += `&rendu=${filtre?.rendu}`;
+      }
       if (filtre.dateDebut) {
         url += `&dateDebut=${filtre?.dateDebut?.toISOString()?.split('T')[0]}`;
       }

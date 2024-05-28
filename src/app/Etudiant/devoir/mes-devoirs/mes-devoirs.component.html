@@ -18,6 +18,14 @@
     </mat-select>
   </mat-form-field>
   <mat-form-field class="filtre">
+    <mat-label>Etat</mat-label>
+    <mat-select [(ngModel)]="filtre.rendu" (selectionChange)="filtre_()">
+      <mat-option value="all"></mat-option>
+      <mat-option value="OUI">OUI<mat-icon class="rendu" >check</mat-icon></mat-option>
+      <mat-option value="NON">NON<mat-icon class="non-rendu" >close</mat-icon></mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="filtre">
     <mat-label>Date de début </mat-label>
     <input matInput [matDatepicker]="picker" [(ngModel)]="filtre.dateDebut" (ngModelChange)="filtre_()" />
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -83,6 +91,13 @@
     </td>
   </ng-container>
 
+  <ng-container matColumnDef="rendu">
+    <th mat-header-cell *matHeaderCellDef>Rendu</th>
+    <td mat-cell *matCellDef="let a">
+      @if(a.rendu){<mat-icon class="rendu" >check</mat-icon>}
+      @else{<mat-icon  class="non-rendu" >close</mat-icon>}
+    </td>
+  </ng-container>
   <ng-container matColumnDef="fichier">
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let a">

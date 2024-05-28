@@ -22,3 +22,10 @@
   font-family: "Ubuntu-Italic";
   font-size: 14px;
 }
+
+.rendu {
+  color: rgb(43, 180, 43);
+}
+.non-rendu{
+  color: rgb(225, 64, 64);
+}
