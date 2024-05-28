@@ -21,7 +21,7 @@ import { environment } from '../../../environments/environment.development';
 })
 export class TemplateEtudiantComponent implements OnInit {
   menus = [
-    { link: 'les_devoirs', icon: 'view_quilt',label: "Liste", title: 'La liste des assignments', active: true },
+    { link: 'les_devoirs', icon: 'view_quilt',label: "Liste", title: 'La liste des devoirs', active: true },
     { link: 'mesdevoirs', icon: 'assignment',label: "Mes devoirs", title: 'Mes devoirs', active: false },
     { link: 'profile', icon: 'person_outline',label: "Profil", title: 'Profil', active: false },
   ];
