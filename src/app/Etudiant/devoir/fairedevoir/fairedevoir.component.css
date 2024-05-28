@@ -30,3 +30,47 @@
 {
   margin-left: 45%;
 }
+
+.resume{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.details-item{
+  height: auto !important;
+}
+
+.details-label{
+  font-family: 'Ubuntu-Medium' !important;
+}
+
+.details-value{
+  font-family: 'Ubuntu-Light' !important;
+}
+
+.full-width{
+  width: 100%;
+}
+
+.button-suivant{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+input[type=file]::file-selector-button {
+  margin-right: 8px;
+  border: none;
+  background: var(--primary);
+  padding: 8px 12px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.button{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 10px;
+}

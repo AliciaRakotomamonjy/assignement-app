@@ -13,6 +13,10 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Assignment } from '../../../shared/models/assignment.model';
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-fairedevoir',
@@ -27,7 +31,11 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatDatepickerModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule,
+    MatListModule,
+    CommonModule,
+    MatIconModule
   ],
   templateUrl: './fairedevoir.component.html',
   styleUrl: './fairedevoir.component.css'

@@ -56,7 +56,8 @@ export class MesDevoirsComponent implements OnInit {
   filtre = {
     idMatiere: undefined,
     dateDebut: undefined,
-    dateFin: undefined
+    dateFin: undefined,
+    description: undefined
   };
   SuccessMessage = "";
   titreDestination = "Détails d'un devoir d'un élève";

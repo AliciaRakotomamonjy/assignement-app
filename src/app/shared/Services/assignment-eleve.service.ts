@@ -29,6 +29,9 @@ export class AssignmentEleveService {
       if (filtre.idMatiere) {
         url += `&idMatiere=${filtre?.idMatiere}`;
       }
+      if (filtre.description) {
+        url += `&description=${filtre?.description}`;
+      }
       if (filtre.dateDebut) {
         url += `&dateDebut=${filtre?.dateDebut?.toISOString()?.split('T')[0]}`;
       }

@@ -1,5 +1,5 @@
 <p class="consigne">
-  Choisissez une description, une matière et une plage de dates pour filtrer les assignments
+  Choisissez une description, une matière et une plage de dates pour filtrer les devoirs
   selon leur date de publication
 </p>
 <div class="filtre-container">
@@ -93,7 +93,7 @@
   <ng-container matColumnDef="Faire">
     <th mat-header-cell *matHeaderCellDef>Faire le devoir</th>
     <td mat-cell *matCellDef="let a">
-     <a  routerLink="/accueil_Etudiant/faire_assignment/{{a._id}}"><button  disabled="false" mat-raised-button color="primary">Faire</button></a>
+     <a  routerLink="/accueil_Etudiant/faire_assignment/{{a._id}}" [queryParams]="{titre: titreDestination}"><button  disabled="false" mat-raised-button color="primary">Faire</button></a>
     </td>
   </ng-container>
 

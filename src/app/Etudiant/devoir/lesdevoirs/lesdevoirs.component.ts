@@ -28,11 +28,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
     MatPaginatorModule, MatTableModule, MatProgressSpinnerModule,
     FormsModule, MatInputModule, MatSelectModule, MatFormFieldModule, MatDatepickerModule,
     MatIconModule, MatDividerModule, MatButtonModule,
-    RouterLink,RouterLinkActive],
+    RouterLink, RouterLinkActive],
   templateUrl: './lesdevoirs.component.html',
   styleUrl: './lesdevoirs.component.css'
 })
-export class LesdevoirsComponent implements OnInit{
+export class LesdevoirsComponent implements OnInit {
   assignments: Assignment[] = [];
   displayedColumns: string[] = ['description', 'matiere', 'professeur', 'datePublication', 'dateLimite', 'Faire'];
   id = this.utilisateurService.getInfoFromToken('id')
@@ -54,6 +54,7 @@ export class LesdevoirsComponent implements OnInit{
     description: undefined
   };
   SuccessMessage = "";
+  titreDestination = "Rendre le devoir"
   ngOnInit(): void {
     this.getAllAssignmentWithPagination();
     this.getAllMatiere();
@@ -94,7 +95,7 @@ export class LesdevoirsComponent implements OnInit{
     this.page = 0
     this.getAllAssignmentWithPagination();
   }
-  deleteAssignment(id:string){
+  deleteAssignment(id: string) {
     this.assignmentService.DeleteAssignmentById(id).subscribe((response) => {
       this.SuccessMessage = response.message
       this.spinner = false
