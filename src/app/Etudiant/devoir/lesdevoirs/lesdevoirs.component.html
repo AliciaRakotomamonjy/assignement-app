@@ -1,39 +1,35 @@
-<h4>
-  Choisissez une matière et une plage de dates pour filtrer les assignments
+<p class="consigne">
+  Choisissez une description, une matière et une plage de dates pour filtrer les assignments
   selon leur date de publication
-</h4>
-<mat-form-field class="filtre">
-  <mat-label>Filtrer par matière</mat-label>
-  <mat-select [(ngModel)]="filtre.matiere" (selectionChange)="filtre_()">
-    <mat-option value="all">Toutes</mat-option>
-
-    @for (matiere of matieres; track matieres) {
-    <mat-option [value]="matiere._id">{{ matiere.libelle }}</mat-option>
-    }
-  </mat-select>
-</mat-form-field>
-<mat-form-field class="filtre">
-  <mat-label>Date du debut </mat-label>
-  <input
-    matInput
-    [matDatepicker]="picker"
-    [(ngModel)]="filtre.dateDebut"
-    (ngModelChange)="filtre_()"
-  />
-  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
-<mat-form-field class="filtre">
-  <mat-label>date de la fin</mat-label>
-  <input
-    matInput
-    [matDatepicker]="picker2"
-    [(ngModel)]="filtre.dateFin"
-    (ngModelChange)="filtre_()"
-  />
-  <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
-  <mat-datepicker #picker2></mat-datepicker>
-</mat-form-field>
+</p>
+<div class="filtre-container">
+  <mat-form-field class="filtre">
+    <mat-label>Description</mat-label>
+    <input matInput  [(ngModel)]="filtre.description" (ngModelChange)="filtre_()" />
+  </mat-form-field>
+  <mat-form-field class="filtre">
+    <mat-label>Matière</mat-label>
+    <mat-select [(ngModel)]="filtre.matiere" (selectionChange)="filtre_()">
+      <mat-option value="all">Toutes</mat-option>
+      <mat-option value="{{ matier_id }}">Ma matière ({{ matiere_libelle }})</mat-option>
+      @for (matiere of matieres; track matieres) { @if(matiere._id != matier_id){
+      <mat-option [value]="matiere._id">{{ matiere.libelle }}</mat-option>
+      } }
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="filtre">
+    <mat-label>Date de début </mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="filtre.dateDebut" (ngModelChange)="filtre_()" />
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field class="filtre">
+    <mat-label>Date de fin</mat-label>
+    <input matInput [matDatepicker]="picker2" [(ngModel)]="filtre.dateFin" (ngModelChange)="filtre_()" />
+    <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+  </mat-form-field>
+</div>
 @if(ErreurMessage!=""){
   <div  class="alert-danger">
       <p>{{ErreurMessage}}</p>
@@ -63,7 +59,7 @@
 }
 <table mat-table [dataSource]="assignments" class="mat-elevation-z8 demo-table">
   <ng-container matColumnDef="description">
-    <th mat-header-cell *matHeaderCellDef>Déscription</th>
+    <th mat-header-cell *matHeaderCellDef>Description</th>
     <td mat-cell *matCellDef="let a">{{ a.description }}</td>
   </ng-container>
 
@@ -81,14 +77,14 @@
   </ng-container>
 
   <ng-container matColumnDef="datePublication">
-    <th mat-header-cell *matHeaderCellDef>Date de la publication</th>
+    <th mat-header-cell *matHeaderCellDef>Date de publication</th>
     <td mat-cell *matCellDef="let a">
       {{ a.datePublication | date : "MMM d, y, H:mm " }}
     </td>
   </ng-container>
 
   <ng-container matColumnDef="dateLimite">
-    <th mat-header-cell *matHeaderCellDef>Date limite du devoir</th>
+    <th mat-header-cell *matHeaderCellDef>Date limite</th>
     <td mat-cell *matCellDef="let a">
       {{ a.dateLimite | date : "MMM d, y, H:mm " }}
     </td>

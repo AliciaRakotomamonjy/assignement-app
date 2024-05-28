@@ -30,12 +30,12 @@
       <mat-stepper [linear]="isLinear" #stepper class="">
         <mat-step [stepControl]="firstFormGroup">
           <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Déscription du devoir</ng-template>
+            <ng-template matStepLabel>Description du devoir</ng-template>
             <mat-form-field style="margin-top: 2%;">
-              <mat-label>Déscription</mat-label>
+              <mat-label>Description</mat-label>
               <input
                 matInput
-                placeholder="La déscription"
+                placeholder="La description"
                 formControlName="firstCtrl"
                 [(ngModel)]="description"
                 required

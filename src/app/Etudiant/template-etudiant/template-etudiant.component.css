@@ -100,6 +100,11 @@ mat-drawer{
     display: flex;
     align-items: center;
     column-gap: 10px;
+    color: var(--black);
+}
+
+.sidenav-logout-text span{
+    font-family: "Ubuntu-Medium" !important;
 }
 
 
