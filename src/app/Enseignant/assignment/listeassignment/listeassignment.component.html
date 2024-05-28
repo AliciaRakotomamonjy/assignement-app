@@ -4,6 +4,10 @@
 </p>
 <div class="filtre-container">
   <mat-form-field class="filtre">
+    <mat-label>Description</mat-label>
+    <input matInput  [(ngModel)]="filtre.description" (ngModelChange)="filtre_()" />
+  </mat-form-field>
+  <mat-form-field class="filtre">
     <mat-label>Matière</mat-label>
     <mat-select [(ngModel)]="filtre.matiere" (selectionChange)="filtre_()">
       <mat-option value="all">Toutes</mat-option>

@@ -50,7 +50,8 @@ export class ListeassignmentComponent implements OnInit {
   filtre = {
     matiere: 'all',
     dateDebut: undefined,
-    dateFin: undefined
+    dateFin: undefined,
+    description: undefined
   };
   SuccessMessage = "";
   titreDestination = "Détails d'un assignment";

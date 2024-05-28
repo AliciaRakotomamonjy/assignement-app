@@ -28,6 +28,9 @@ export class AssignmentService {
       if (filtre.dateFin) {
         url += `&dateFin=${filtre.dateFin}`;
       }
+      if (filtre.description) {
+        url += `&description=${filtre.description}`;
+      }
     }
     return this.httpClient.get(url);
   }
