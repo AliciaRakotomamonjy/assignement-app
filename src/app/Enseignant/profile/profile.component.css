@@ -1,3 +1,15 @@
+.card-content{
+    margin-top: 25px;
+}
+
+.details-label{
+    font-family: 'Ubuntu-Medium' !important;
+}
+
+.details-value{
+    font-family: 'Ubuntu-Light' !important;
+}
+
 .container{
     display: flex;
     /* justify-content: center; */
@@ -12,8 +24,8 @@
 .photo{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-content: center;
+    text-align: center;
 }
 
 .photo-image{
@@ -48,6 +60,7 @@
     /* justify-content: center; */
     align-content: center;
     row-gap: 30px;
+    margin-left: 50px;
 }
 
 .information-item{

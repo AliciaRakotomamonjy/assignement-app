@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="card-content">
     <mat-card-content>
       @if(ErreurMessage!=""){
       <div class="alert-danger">
@@ -55,30 +55,33 @@
                 readonly
               />
             </mat-form-field>
-            <label for="image">choisir une photo de profile</label>
-            <br />
-            <input
-              style="margin-top: 2%"
-              type="file"
-              id="image"
-              (change)="selectFile($event)"
-              name="image"
-              required
-            />
-            <br />
+            <div class="file-container">
+              <label class="file-label" for="image">Photo de profil</label>
+              <input
+                style="margin-top: 2%"
+                type="file"
+                id="image"
+                (change)="selectFile($event)"
+                name="image"
+                required
+              />
+            </div>
             @if(spinner){
             <div class="div-spinner">
               <mat-spinner [diameter]="50"></mat-spinner>
             </div>
             }
-            <button
-              class="button-item"
-              mat-stroked-button
-              color="primary"
-              (click)="Valider()"
-            >
-              Valider
-            </button>
+            <div class="button-container">
+              <button
+                class="button-item"
+                mat-stroked-button
+                color="primary"
+                (click)="Valider()"
+              >
+                Valider
+              </button>
+            </div>
+            
           </form>
         </div>
       </div>

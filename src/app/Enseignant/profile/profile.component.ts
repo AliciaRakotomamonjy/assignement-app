@@ -5,11 +5,13 @@ import { UtilisateurService } from '../../shared/Services/utilisateur.service';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { environment } from '../../../environments/environment.development';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, RouterLink],
+  imports: [MatCardModule, MatButtonModule, RouterLink,MatListModule,MatIconModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
