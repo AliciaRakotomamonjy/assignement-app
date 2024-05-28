@@ -7,12 +7,13 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { environment } from '../../../environments/environment.development';
+import { MatListModule } from '@angular/material/list';
 
 @Component({
   selector: 'app-profile-etudiant',
   standalone: true,
   imports: [MatCard,MatCardContent,MatButtonModule, MatDividerModule, MatIconModule,
-    RouterLink, RouterLinkActive],
+    RouterLink, RouterLinkActive,MatListModule],
   templateUrl: './profile-etudiant.component.html',
   styleUrl: './profile-etudiant.component.css'
 })

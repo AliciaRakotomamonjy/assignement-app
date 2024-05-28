@@ -1,3 +1,15 @@
+.card-content{
+  margin-top: 25px;
+}
+
+.details-label{
+  font-family: 'Ubuntu-Medium' !important;
+}
+
+.details-value{
+  font-family: 'Ubuntu-Light' !important;
+}
+
 .container{
   display: flex;
   /* justify-content: center; */
@@ -12,17 +24,17 @@
 .photo{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-content: center;
+  text-align: center;
 }
 
 .photo-image{
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
   padding: 20px;
   border-radius: 10px;
 }
 
-.photo-bouton{
+.photo-bouton{ 
   padding: 15px;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='black' stroke-width='3' stroke-dasharray='4%2c15' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
   border-radius: 10px;
@@ -48,6 +60,7 @@
   /* justify-content: center; */
   align-content: center;
   row-gap: 30px;
+  margin-left: 50px;
 }
 
 .information-item{

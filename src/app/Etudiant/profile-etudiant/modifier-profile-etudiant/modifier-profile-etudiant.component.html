@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="card-content">
   <mat-card-content>
     @if(ErreurMessage!=""){
     <div class="alert-danger">
@@ -12,13 +12,7 @@
     <div class="container">
       <div class="photo">
         <div>
-          <img
-            class="photo-image"
-            alt="Photo enseignant"
-            src="{{ img }}"
-            width="250"
-            height="250"
-          />
+          <img class="photo-image" alt="Photo enseignant" src="{{ img }}" width="250" height="250" />
         </div>
         <!-- <div class="photo-bouton">
                   <span>CHANGER L'IMAGE</span>
@@ -29,56 +23,31 @@
         <form class="example-form">
           <mat-form-field class="example-full-width">
             <mat-label> Nom </mat-label>
-            <input
-              matInput
-              placeholder="votre : nom"
-              [(ngModel)]="nom"
-              name="nom"
-            />
+            <input matInput placeholder="votre : nom" [(ngModel)]="nom" name="nom" />
           </mat-form-field>
           <mat-form-field class="example-full-width">
             <mat-label> Prénom </mat-label>
-            <input
-              matInput
-              placeholder="votre : prenom"
-              [(ngModel)]="prenom"
-              name="prenom"
-            />
+            <input matInput placeholder="votre : prenom" [(ngModel)]="prenom" name="prenom" />
           </mat-form-field>
           <mat-form-field class="example-full-width">
             <mat-label> Adresse-Mail </mat-label>
-            <input
-              matInput
-              placeholder="votre : email"
-              [(ngModel)]="email"
-              name="email"
-              readonly
-            />
+            <input matInput placeholder="votre : email" [(ngModel)]="email" name="email" readonly />
           </mat-form-field>
-          <label for="image">choisir une photo de profile</label>
-          <br />
-          <input
-            style="margin-top: 2%"
-            type="file"
-            id="image"
-            (change)="selectFile($event)"
-            name="image"
-            required
-          />
-          <br />
+          <div class="file-container">
+            <label class="file-label" for="image">Photo de profil</label>
+            <input style="margin-top: 2%" type="file" id="image" (change)="selectFile($event)" name="image" required />
+          </div>
           @if(spinner){
           <div class="div-spinner">
             <mat-spinner [diameter]="50"></mat-spinner>
           </div>
           }
-          <button
-            class="button-item"
-            mat-stroked-button
-            color="primary"
-            (click)="Valider()"
-          >
-            Valider
-          </button>
+          <div class="button-container">
+            <button class="button-item" mat-stroked-button color="primary" (click)="Valider()">
+              Valider
+            </button>
+          </div>
+
         </form>
       </div>
     </div>
