@@ -21,6 +21,14 @@ export class AssignmentEleveService {
     return this.httpClient.put<AssignmentElve>(url, assignment);
   }
 
+  EditeDescriptionAndFile(assignmentEleve: any) : Observable<any> {
+    let url = environment.API_URL + environment.ASSIGNMENTELEVE_API+assignmentEleve?._id;
+    const formData = new FormData();
+    formData.append('file', assignmentEleve?.selectedFile, assignmentEleve?.selectedFile?.name);
+    formData.append('description', assignmentEleve?.description);
+    return this.httpClient.put<AssignmentElve>(url, formData);
+  }
+
   GetAllAssignmentEleveWithPagination(page: number, limit : number, filtre: any): Observable<any>{
     let url = environment.API_URL + environment.ASSIGNMENTELEVE_API;
     url += `?page=${page}`;

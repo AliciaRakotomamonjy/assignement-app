@@ -18,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-mes-devoirs',
@@ -39,6 +40,7 @@ import { MatInputModule } from '@angular/material/input';
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatTableModule,
+    MatTooltipModule
   ],
   templateUrl: './mes-devoirs.component.html',
   styleUrl: './mes-devoirs.component.css'

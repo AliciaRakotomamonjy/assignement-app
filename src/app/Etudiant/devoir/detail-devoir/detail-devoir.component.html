@@ -1,23 +1,73 @@
 <div>
     @if(isLoading){
-        <div class="loading" >
-            <mat-spinner  diameter="40" color="blue" ></mat-spinner>
-        </div>
+    <div class="loading">
+        <mat-spinner diameter="40" color="blue"></mat-spinner>
+    </div>
     }@else{
-        <div>
-            <p>Professeur: {{assignmentEleveTransmis?.assignment?.matiere?.professeur?.nom +" "+assignmentEleveTransmis?.assignment?.matiere?.professeur?.prenom}}</p>
-            <p>Description: {{assignmentEleveTransmis?.description}}</p>
-            <p>Date de rendu: {{assignmentEleveTransmis?.dateRendu | date: 'EEE d MMMM y': 'fr' }}</p>
-            <p>Matière: {{assignmentEleveTransmis?.assignment?.matiere?.libelle}}</p>
-            <p>Sujet: {{assignmentEleveTransmis?.assignment?.description}}</p>
-            <p>À rendre avant le: {{(assignmentEleveTransmis?.assignment?.dateLimite | date: 'EEE d MMMM y': 'fr')}}</p>
-            <p>Rendu: {{ assignmentEleveTransmis?.rendu ? 'OUI' : 'NON' }}</p>
+    <div class="resume">
+        <mat-list>
+            <mat-list-item class="details-item">
+                <mat-icon matListItemIcon>description</mat-icon>
+                <div class="details-label" matListItemTitle>Sujet</div>
+                <div class="details-value" matListItemLine>{{assignmentEleveTransmis?.assignment?.description + " à
+                    rendre avant le " +(assignmentEleveTransmis?.assignment?.dateLimite | date: 'EEE d MMMM y': 'fr')}}
+                </div>
+            </mat-list-item>
+            <mat-list-item class="details-item">
+                <mat-icon matListItemIcon>person</mat-icon>
+                <div class="details-label" matListItemTitle>Elève</div>
+                <div class="details-value" matListItemLine>{{assignmentEleveTransmis?.eleve?.nom + "
+                    "+assignmentEleveTransmis?.eleve?.prenom}}</div>
+            </mat-list-item>
+            <mat-list-item class="details-item">
+                <mat-icon matListItemIcon>description</mat-icon>
+                <div class="details-label" matListItemTitle>Description</div>
+                <div class="details-value" matListItemLine>{{assignmentEleveTransmis?.description }}</div>
+            </mat-list-item>
+            <mat-list-item class="details-item">
+                <mat-icon matListItemIcon>description</mat-icon>
+                <div class="details-label" matListItemTitle>Matière</div>
+                <div class="details-value" matListItemLine>{{assignmentEleveTransmis?.assignment?.matiere?.libelle}}
+                </div>
+            </mat-list-item>
+
+            <mat-list-item class="details-item">
+                <mat-icon matListItemIcon>calendar_today</mat-icon>
+                <div class="details-label" matListItemTitle>Date de rendu</div>
+                <div class="details-value" matListItemLine>{{assignmentEleveTransmis?.dateRendu | date: 'EEE d MMMM y':
+                    'fr' }}</div>
+            </mat-list-item>
+            <mat-list-item class="details-item">
+                <mat-icon matListItemIcon>description</mat-icon>
+                <div class="details-label" matListItemTitle>Rendu</div>
+                <div class="details-value" matListItemLine>{{ assignmentEleveTransmis?.rendu ? 'OUI' : 'NON' }}</div>
+            </mat-list-item>
+            <mat-list-item class="details-item">
+                <mat-icon matListItemIcon>attach_file</mat-icon>
+                <div class="details-label" matListItemTitle>Pièce jointe</div>
+                <div class="details-value" matListItemLine><a mat-button (click)="telecharger()">{{
+                        assignmentEleveTransmis?.fichier }}</a></div>
+            </mat-list-item>
             @if(assignmentEleveTransmis?.rendu){
-                <p>Note: {{assignmentEleveTransmis?.note}}</p>
-                <p>Remarque: {{assignmentEleveTransmis?.remarque}}</p>
+            <mat-list-item class="details-item">
+                <mat-icon matListItemIcon>description</mat-icon>
+                <div class="details-label" matListItemTitle>Note</div>
+                <div class="details-value" matListItemLine>{{assignmentEleveTransmis?.note}}</div>
+            </mat-list-item>
+            <mat-list-item class="details-item">
+                <mat-icon matListItemIcon>description</mat-icon>
+                <div class="details-label" matListItemTitle>Remarque</div>
+                <div class="details-value" matListItemLine>{{assignmentEleveTransmis?.remarque}}</div>
+            </mat-list-item>
             }
-            <button mat-button [matTooltip]="(assignmentEleveTransmis?.rendu && assignmentEleveTransmis?.note) ? 'Vous ne pouvez plus modifier ce devoir car il est déjà noté' : ''" color="primary" [disabled]="assignmentEleveTransmis?.rendu" (click)="openDialog()" >Modifier</button>
-            <button mat-button (click)="goToListe()">Revenir à la liste</button>
+        </mat-list>
+        <div class="button">
+            <button mat-button (click)="goToListe()" color="primary">Revenir à la liste</button>
+            <button mat-flat-button
+                [matTooltip]="(assignmentEleveTransmis?.rendu && assignmentEleveTransmis?.note) ? 'Vous ne pouvez plus modifier ce devoir car il est déjà noté' : ''"
+                color="primary" [disabled]="assignmentEleveTransmis?.rendu" (click)="openDialog()">Modifier</button>
         </div>
+       
+    </div>
     }
 </div>

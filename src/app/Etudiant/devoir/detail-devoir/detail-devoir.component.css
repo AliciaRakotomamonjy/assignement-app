@@ -2,5 +2,40 @@
     display: flex;
     justify-content: center;
     align-content: center;
+    /* width: 40px; */
     z-index: 9999;
+}
+
+.custom-snackbar {
+    --mdc-snackbar-container-color: var(--primary);
+    --mat-mdc-snack-bar-button-color: var(--primary);
+    --mat-mdc-snack-bar-supporting-text-font: 'Ubuntu-Medium'; 
+}
+
+.resume{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.non-rendu{
+    color: rgb(225, 64, 64);
+}
+
+.details-item{
+    height: auto !important;
+}
+
+.details-label{
+    font-family: 'Ubuntu-Medium' !important;
+}
+
+.details-value{
+    font-family: 'Ubuntu-Regular' !important;
+}
+
+.button{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 10px;
 }

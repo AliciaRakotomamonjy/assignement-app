@@ -1,16 +1,14 @@
 <h2 mat-dialog-title>Modification du devoir</h2>
 <mat-dialog-content class="dialog-content">
-  <form 
-    class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Description</mat-label>
-      <textarea class="example-full-width" name="description" rows="6" matInput [(ngModel)]="data.description" placeholder="..."></textarea>
+      <textarea class="example-full-width" name="description" rows="6" matInput [(ngModel)]="data.description"
+        placeholder="..." required="true"></textarea>
     </mat-form-field>
-    <mat-form-field>
-      <mat-label>Fichier</mat-label>
-      <input style="margin-top: 2%" type="file" id="image" name="image" required />
-    </mat-form-field>
-  </form>
+    <div class="file-container">
+      <label class="file-label" >Pièce jointe</label>
+      <input style="margin-top: 2%" type="file"(change)="selectFile($event)" id="file" name="file" required />
+    </div>
 </mat-dialog-content>
 <mat-dialog-actions class="button-footer">
   <button mat-button color="primary" [mat-dialog-close]="{data: data, action: 'validate'}"

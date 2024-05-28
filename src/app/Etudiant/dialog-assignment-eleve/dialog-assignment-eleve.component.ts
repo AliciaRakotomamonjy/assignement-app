@@ -25,10 +25,15 @@ import { MatButtonModule } from '@angular/material/button';
 export class DialogAssignmentEleveComponent {
   constructor(
     public dialogRef: MatDialogRef<DialogAssignmentEleveComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: AssignmentElve,
+    @Inject(MAT_DIALOG_DATA) public data: any,
   ) {}
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  selectFile(event: any) {
+    this.data.selectedFile = event.target.files[0];
+    console.log(this.data.selectedFile)
   }
 }

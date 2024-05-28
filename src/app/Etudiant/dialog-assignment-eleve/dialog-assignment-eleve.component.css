@@ -1,10 +1,10 @@
-.button-footer{
+.button-footer {
     display: flex;
     justify-content: center;
     align-content: center;
 }
 
-.dialog-content{
+.dialog-content {
     display: flex;
     flex-direction: column;
 }
@@ -14,7 +14,28 @@
     max-width: 500px;
     width: 100%;
 }
-  
+
 .example-full-width {
-    width: 100%;    
+    width: 100%;
+}
+
+input[type=file]::file-selector-button {
+    margin-right: 8px;
+    border: none;
+    background: var(--primary);
+    padding: 8px 12px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.file-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+}
+
+.file-label {
+    color: #00000099;
+    font-family: "Ubuntu-Regular";
+    font-size: 12.5px;
 }

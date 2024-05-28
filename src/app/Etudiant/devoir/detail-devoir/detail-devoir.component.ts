@@ -10,11 +10,13 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { DialogAssignmentEleveComponent } from '../../dialog-assignment-eleve/dialog-assignment-eleve.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-detail-devoir',
   standalone: true,
-  imports: [MatProgressSpinnerModule, CommonModule, MatButtonModule,MatTooltipModule],
+  imports: [MatProgressSpinnerModule, CommonModule, MatButtonModule,MatTooltipModule, MatListModule,MatIconModule],
   templateUrl: './detail-devoir.component.html',
   styleUrl: './detail-devoir.component.css'
 })
@@ -52,18 +54,22 @@ export class DetailDevoirComponent implements OnInit {
 
   openDialog(){
     console.log("assignmentTransmis",this.assignmentEleveTransmis)
+    let assignmentEleveCopie : any = {...this.assignmentEleveTransmis}
     const dialogRef = this.dialog.open(DialogAssignmentEleveComponent, {
-      data: this.assignmentEleveTransmis,
+      data: assignmentEleveCopie,
+      width: '500px', 
+      height: '400px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if(result?.action === "validate"){
         this.isLoading = true;
-        if (this.assignmentEleveTransmis) {
-          this.assignmentEleveTransmis.note = result?.data?.note;
-          this.assignmentEleveTransmis.remarque = result?.data?.remarque;
+        if (assignmentEleveCopie) {
+          assignmentEleveCopie.note = result?.data?.note;
+          assignmentEleveCopie.remarque = result?.data?.remarque;
+          assignmentEleveCopie.selectedFile = result?.data?.selectedFile;
         }
-        this.assignmentEleveService.EditeAssignment(this.assignmentEleveTransmis).subscribe((response) => {
+        this.assignmentEleveService.EditeDescriptionAndFile(assignmentEleveCopie).subscribe((response) => {
           this.assignmentEleveTransmis = response?.result;
           this.isLoading = false;
           const config = new MatSnackBarConfig();
@@ -91,4 +97,32 @@ export class DetailDevoirComponent implements OnInit {
   goToListe(){
     this.router.navigateByUrl("/accueil_Etudiant/mesdevoirs")
   }
+
+  telecharger() {
+    this.isLoading = true;
+    if(this.assignmentEleveTransmis) {
+      this.assignmentEleveService.TelechargerFichierEleve(this.assignmentEleveTransmis).subscribe(response => {
+        const blob = new Blob([response], { type: 'application/octet-stream' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = this.assignmentEleveTransmis?.fichier || 'devoir_eleve';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+        this.isLoading = false;
+      },
+        error => {
+          console.error('Une erreur s\'est produite lors du téléchargement du fichier :', error);
+          const config = new MatSnackBarConfig();
+          config.panelClass = ['custom-snackbar'];
+          config.duration = 3000;
+          this.snackbar.open(error?.error?.message || "Une erreur s'est produite !", 'Fermer', config)
+          // Traitez l'erreur ici, par exemple affichez un message d'erreur à l'utilisateur
+          this.isLoading = false;
+        });
+    }
+  }
+
 }
