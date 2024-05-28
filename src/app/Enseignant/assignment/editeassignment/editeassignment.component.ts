@@ -72,6 +72,7 @@ export class EditeassignmentComponent implements OnInit {
       this.SuccessMessage = response.message
       this.spinner = false
       this.isLinear = false
+      this.goToListe();
     }, (error: HttpErrorResponse) => {
       if (error.error instanceof ErrorEvent) {
         this.ErreurMessage = 'Une erreur s\'est produite : ' + error.error.message;

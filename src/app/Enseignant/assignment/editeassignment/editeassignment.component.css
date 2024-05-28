@@ -43,3 +43,14 @@ margin: 5%;
 .retour{
   margin-top: 2%;
 }
+.full-width{
+  width: 100%;
+}
+
+.button{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 10px;
+}

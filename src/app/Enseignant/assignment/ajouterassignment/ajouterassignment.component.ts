@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatStepperModule } from '@angular/material/stepper';
+import { MatStepper, MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
@@ -30,7 +30,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './ajouterassignment.component.css'
 })
 export class AjouterassignmentComponent {
-
+  @ViewChild('stepper') stepper!: MatStepper;
   datelimite: Date | undefined
   description = ""
   firstFormGroup = this._formBuilder.group({
@@ -61,6 +61,7 @@ export class AjouterassignmentComponent {
       this.SuccessMessage = response.message
       this.spinner = false
       this.isLinear = false
+      this.goToListe()
     }, (error: HttpErrorResponse) => {
       if (error.error instanceof ErrorEvent) {
         this.ErreurMessage = 'Une erreur s\'est produite : ' + error.error.message;

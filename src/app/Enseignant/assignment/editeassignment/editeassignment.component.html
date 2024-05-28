@@ -1,50 +1,52 @@
 <div class="container">
   @if(ErreurMessage!=""){
-    <div  class="alert-danger">
-        <p>{{ErreurMessage}}</p>
-    </div>
+  <div class="alert-danger">
+    <p>{{ErreurMessage}}</p>
+  </div>
   }
   @if(SuccessMessage!=""){
-    <div class="alert-success">
-        <p>{{SuccessMessage}}</p>
-     </div>
+  <div class="alert-success">
+    <p>{{SuccessMessage}}</p>
+  </div>
   }
-<mat-stepper [linear]="isLinear" #stepper class="">
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Déscription du devoir</ng-template>
-      <mat-form-field>
-        <mat-label>Déscription</mat-label>
-        <input matInput placeholder="La déscription" formControlName="firstCtrl" [(ngModel)]="description" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperNext>Suivant</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Date limite</ng-template>
-      <mat-form-field>
-        <mat-label>A rendre le:</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="secondCtrl" [(ngModel)]="datelimite" required>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>retour</button>
-        <button mat-button (click)="stepper.reset()">vider</button>
-      </div>
-    </form>
-  </mat-step>
-</mat-stepper>
-@if(spinner){
+  <mat-stepper [linear]="isLinear" #stepper class="">
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Description du devoir</ng-template>
+        <mat-form-field class="full-width" >
+          <mat-label>Description</mat-label>
+          <textarea rows="4" matInput placeholder="La description" formControlName="firstCtrl" [(ngModel)]="description" required></textarea>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Date limite</ng-template>
+        <mat-form-field class="full-width" >
+          <mat-label>À rendre le:</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="secondCtrl" [(ngModel)]="datelimite" required>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <div class="button">
+          <div>
+            <button mat-button matStepperPrevious>Retour</button>
+            <button mat-button (click)="stepper.reset()">Vider</button>
+          </div>
+          <button mat-raised-button (click)="Valider()" color="primary" [disabled]="spinner">Valider</button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-stepper>
+  @if(spinner){
   <div class="div-spinner">
-    <mat-spinner  [diameter]="50"></mat-spinner>
-</div>
-}
-<button mat-raised-button (click)="Valider()"color="primary" class="valider" [disabled]="spinner">Valider</button>
-<div class="retour">
-  <button mat-button (click)="goToListe()" color="primary">Revenir à la liste</button>
-</div>
+    <mat-spinner [diameter]="50"></mat-spinner>
+  </div>
+  }
+  <div class="button">
+    <button mat-button (click)="goToListe()" color="primary">Revenir à la liste</button>
+  </div>
 </div>
