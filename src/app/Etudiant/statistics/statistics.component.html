@@ -1,0 +1,29 @@
+@if(isLoading){
+<div class="div-spinner">
+    <mat-spinner [diameter]="50"></mat-spinner>
+</div>
+}@else {
+    <p class="consigne">
+        Choisissez une plage de dates pour filtrer les statistiques
+    </p>
+    <div class="filtre-container">
+        <mat-form-field class="filtre">
+            <mat-label>Date de début </mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="filtre.dateDebut" (ngModelChange)="filtre_()" />
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="filtre">
+            <mat-label>Date de fin</mat-label>
+            <input matInput [matDatepicker]="picker2" [(ngModel)]="filtre.dateFin" (ngModelChange)="filtre_()" />
+            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div>
+        <h3>Statistique</h3>
+        <apx-chart [series]="chartSeries" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+            [title]="chartOptions.title" [yaxis]="chartOptions.yaxis" [tooltip]="chartOptions.tooltip"
+            [fill]="chartOptions.fill"></apx-chart>
+    </div>
+}

@@ -36,7 +36,8 @@ export const environment = {
   MATIERE_API:'/api/matiere',
   MATIERE:{
     GET_ALL_MATIERE:'/getAllMatiere'
-  }
+  },
+  STAT_API:'/api/statistique',
 
 
 };

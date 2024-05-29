@@ -19,6 +19,7 @@ import { DetailDevoirComponent } from './Etudiant/devoir/detail-devoir/detail-de
 import { ProfileEtudiantComponent } from './Etudiant/profile-etudiant/profile-etudiant.component';
 import { ModifierProfileEtudiantComponent } from './Etudiant/profile-etudiant/modifier-profile-etudiant/modifier-profile-etudiant.component';
 import { ModificationProfileComponent } from './Enseignant/profile/modification-profile/modification-profile.component';
+import { StatisticsComponent } from './Etudiant/statistics/statistics.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -49,6 +50,9 @@ export const routes: Routes = [
       },
       {
         path: 'modifier_profile', component: ModifierProfileEtudiantComponent
+      },
+      {
+        path: 'stats', component: StatisticsComponent
       },
 
     ]

@@ -1,0 +1,27 @@
+.spinner
+{
+  height: 5%;
+}
+.div-spinner
+{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+.filtre-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.filtre {
+    flex: auto;
+    margin-right: 2%;
+}
+
+.consigne {
+    font-family: "Ubuntu-Italic";
+    font-size: 14px;
+}
