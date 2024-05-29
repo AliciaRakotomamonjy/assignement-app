@@ -2,7 +2,7 @@ export const environment = {
 
   production: false,
 
-  API_URL: 'http://localhost:3001',
+  API_URL: 'https://mbds-assignement-api.onrender.com',
 
   AUTH_API: '/api/auth',
   IMAGE_API:'/api/img',
