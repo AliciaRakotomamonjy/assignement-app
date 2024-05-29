@@ -99,7 +99,7 @@
             <div cdkDropList [cdkDropListData]="assignmentEleveNonRendus" class="example-list"
                 (cdkDropListDropped)="drop($event)" #nonRenduList="cdkDropList">
                 @for (item of assignmentEleveNonRendus; track item) {
-                <div class="example-box" cdkDrag [cdkDragData]="item">{{item.description}}</div>
+                <div class="example-box" cdkDrag [cdkDragData]="item">{{item.description}} / {{item.eleve.nom}} {{item.eleve.prenom}}</div>
                 }
             </div>
         </div>
@@ -111,7 +111,7 @@
                 (cdkDropListDropped)="drop($event)" cdkDropListOrientation="vertical"
                 [cdkDropListConnectedTo]="[nonRenduList]">
                 @for (item of assignmentEleveRendus; track item) {
-                <div class="example-box" cdkDrag [cdkDragData]="item">{{item.description}}</div>
+                <div class="example-box" cdkDrag [cdkDragData]="item">{{item.description}} / {{item.eleve.nom}} {{item.eleve.prenom}}</div>
                 }
             </div>
         </div>
