@@ -1,6 +1,6 @@
 # Contributions au Projet Assignment
 
-## Rakotomamonjy Nambinina Henintsoa Alicia
+## Rakotomamonjy Nambinina Henintsoa Alicia - 24
 
 - **Mise en place de l'environnement de développement :**
   - Configuration de Git, Angular, MongoDB, Express, etc.
@@ -43,7 +43,7 @@
   - Déploiement du backend sur [https://mbds-assignement-api.onrender.com](https://mbds-assignement-api.onrender.com).
   - Déploiement du frontend : https://mbds-assignement-app.onrender.com/login?fbclid=IwZXh0bgNhZW0CMTAAAR2WNDsA6hUyHr4degDwzfnmdKVGifn_qyo5_RRpMjNYx2QCji83IA6zoDQ_aem_ATzhgpmRrOsEpFYxmn5HOHYsvnWovQw63DyftSVShOu2fYfxy2OlGRy_M96jt9S7_dprJbPsb5TAVXd0rNHCH84O
 
-## Ratsimbazafy Henintsoa Elysée
+## Ratsimbazafy Henintsoa Elysée - 51
 
 - **Login avec Token :**
   - Implémentation de la fonctionnalité de connexion à l'application.
@@ -55,6 +55,7 @@
 - **Pagination, Filtrage et Affichage de la liste des Assignments avec `<mat-paginator>` pour les professeurs:**
   - Développement de la fonctionnalité pour afficher les devoirs avec pagination.
   - Filtrage : Permet aux élèves de filtrer les assignments de manière efficace selon des critères spécifiques :
+      - **Par description :** Aide à trouver rapidement les assignments à partir de la description en saisissant un mot clé.
       - **Par Matière :** Aide à trouver rapidement les assignments d'une matière donnée.
       - **Par Date Limite :** Offre la possibilité de filtrer les assignments en fonction de leur date limite, avec des conditions flexibles :
         - Si **une date** est spécifiée, les assignments affichés auront une date limite **supérieure** à cette date.
