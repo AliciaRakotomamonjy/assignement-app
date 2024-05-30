@@ -1,6 +1,6 @@
 # Contributions au Projet Assignment
 
-## Rakotomamonjy Nambinina Henintsoa Alicia - 24
+## Rakotomamonjy Nambinina Henintsoa Alicia - 22
 
 - **Mise en place de l'environnement de développement :**
   - Configuration de Git, Angular, MongoDB, Express, etc.
@@ -43,7 +43,7 @@
   - Déploiement du backend sur [https://mbds-assignement-api.onrender.com](https://mbds-assignement-api.onrender.com).
   - Déploiement du frontend : https://mbds-assignement-app.onrender.com/login?fbclid=IwZXh0bgNhZW0CMTAAAR2WNDsA6hUyHr4degDwzfnmdKVGifn_qyo5_RRpMjNYx2QCji83IA6zoDQ_aem_ATzhgpmRrOsEpFYxmn5HOHYsvnWovQw63DyftSVShOu2fYfxy2OlGRy_M96jt9S7_dprJbPsb5TAVXd0rNHCH84O
 
-## Ratsimbazafy Henintsoa Elysée - 51
+## Ratsimbazafy Henintsoa Elysée - 49
 
 - **Login avec Token :**
   - Implémentation de la fonctionnalité de connexion à l'application.
